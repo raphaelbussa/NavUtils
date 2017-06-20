@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:ignore="HardcodedText">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@id/default_toolbar_id"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/default_toolbar_id"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/horizontal_right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Activity HORIZONTAL_RIGHT" />
+
+        <Button
+            android:id="@+id/horizontal_left"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Activity HORIZONTAL_LEFT" />
+
+        <Button
+            android:id="@+id/vertical_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Activity VERTICAL_BOTTOM" />
+
+        <Button
+            android:id="@+id/vertical_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Activity VERTICAL_TOP" />
+
+        <Button
+            android:id="@+id/none"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Activity NONE" />
+
+        <Button
+            android:id="@+id/system"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Activity SYSTEM" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@id/default_toolbar_shadow_id"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_below="@id/default_toolbar_id"
+        android:background="@drawable/top_shadow" />
+
+</RelativeLayout>

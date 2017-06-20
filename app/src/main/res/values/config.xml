@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="default_toolbar_id" type="id" />
+    <item name="default_toolbar_shadow_id" type="id" />
+
+</resources>

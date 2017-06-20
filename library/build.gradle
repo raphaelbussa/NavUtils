@@ -1,0 +1,37 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+android {
+
+    compileSdkVersion var.compileSdk
+    buildToolsVersion var.buildTools
+
+    defaultConfig {
+        minSdkVersion var.minSdk
+        targetSdkVersion var.targetSdk
+        versionCode 1
+        versionName "${var.version}"
+
+    }
+
+    buildTypes {
+        all {
+            resValue "string", "version", "${var.version}"
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile "com.android.support:appcompat-v7:${var.supportLib}"
+}
+
+publish {
+    userOrg = 'raphaelbussa'
+    groupId = 'rebus'
+    artifactId = 'nav-utils'
+    publishVersion = "${var.version}"
+}
