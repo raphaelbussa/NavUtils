@@ -1,12 +1,12 @@
 package rebus.navutils.sample;
 
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 
 import rebus.navutils.NavUtils;
 import rebus.navutils.activity.ActivityUtils;
 import rebus.navutils.activity.BaseActivity;
+import rebus.navutils.chrome.ChromeUtils;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
@@ -25,16 +25,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.vertical_top).setOnClickListener(this);
         findViewById(R.id.none).setOnClickListener(this);
         findViewById(R.id.system).setOnClickListener(this);
+        findViewById(R.id.chrome).setOnClickListener(this);
     }
 
     @Override
     protected int setLayoutResource() {
         return R.layout.activity_main;
-    }
-
-    @Override
-    public int setScreenOrientation() {
-        return ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
     }
 
     @Override
@@ -69,6 +65,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 ActivityUtils.Builder(getActivity())
                         .animationType(NavUtils.SYSTEM)
                         .start(ResultActivity.class);
+                break;
+            case R.id.chrome:
+                ChromeUtils.Builder(getActivity())
+                        .setShowTitle(true)
+                        .animationType(NavUtils.VERTICAL_BOTTOM)
+                        .setToolbarColorRes(R.color.colorAccent)
+                        .load("https://github.com/rebus007/NavUtils");
                 break;
         }
 

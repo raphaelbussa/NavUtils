@@ -1,8 +1,6 @@
 package rebus.navutils.activity;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.pm.ActivityInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,7 +8,6 @@ import android.support.annotation.AnimRes;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
-import android.support.annotation.IntDef;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
@@ -21,9 +18,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
 
 import rebus.navutils.NavUtils;
 import rebus.navutils.R;
@@ -47,7 +41,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         if (setTheme() != 0) setTheme(setTheme());
         super.onCreate(savedInstanceState);
-        setRequestedOrientation(setScreenOrientation());
         if (setLayoutResource() != 0) {
             setContentView(setLayoutResource());
             if (setToolbarId() != 0) {
@@ -292,37 +285,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         return R.id.default_toolbar_shadow_id;
     }
 
-    @ScreenOrientation
-    public int setScreenOrientation() {
-        return ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED;
-    }
-
     @StyleRes
     public int setTheme() {
         return 0;
-    }
-
-    @SuppressLint("InlinedApi")
-    @IntDef({
-            ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED,
-            ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE,
-            ActivityInfo.SCREEN_ORIENTATION_PORTRAIT,
-            ActivityInfo.SCREEN_ORIENTATION_USER,
-            ActivityInfo.SCREEN_ORIENTATION_BEHIND,
-            ActivityInfo.SCREEN_ORIENTATION_SENSOR,
-            ActivityInfo.SCREEN_ORIENTATION_NOSENSOR,
-            ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE,
-            ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT,
-            ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE,
-            ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT,
-            ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR,
-            ActivityInfo.SCREEN_ORIENTATION_USER_LANDSCAPE,
-            ActivityInfo.SCREEN_ORIENTATION_USER_PORTRAIT,
-            ActivityInfo.SCREEN_ORIENTATION_FULL_USER,
-            ActivityInfo.SCREEN_ORIENTATION_LOCKED
-    })
-    @Retention(RetentionPolicy.SOURCE)
-    public @interface ScreenOrientation {
     }
 
 }
