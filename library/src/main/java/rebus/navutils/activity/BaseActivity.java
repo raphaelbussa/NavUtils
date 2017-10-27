@@ -293,6 +293,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         return R.id.default_toolbar_shadow_id;
     }
 
+    @NavUtils.Orientation
     public int setRequestedOrientation() {
         return 0;
     }
