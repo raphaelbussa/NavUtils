@@ -1,5 +1,6 @@
 package rebus.navutils.sample;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 
@@ -31,6 +32,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected int setLayoutResource() {
         return R.layout.activity_main;
+    }
+
+    @Override
+    public int setRequestedOrientation() {
+        return ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE;
     }
 
     @Override

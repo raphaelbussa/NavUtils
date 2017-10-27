@@ -42,8 +42,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         if (setTheme() != 0) setTheme(setTheme());
         super.onCreate(savedInstanceState);
-        if (setRequestedOrientation() != 0) {
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        if (setRequestedOrientation() != NavUtils.NULL) {
+            setRequestedOrientation(setRequestedOrientation());
         }
         if (setLayoutResource() != 0) {
             setContentView(setLayoutResource());
@@ -295,7 +295,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @NavUtils.Orientation
     public int setRequestedOrientation() {
-        return 0;
+        return NavUtils.NULL;
     }
 
     @StyleRes
