@@ -1,5 +1,6 @@
 package rebus.navutils;
 
+import android.content.pm.ActivityInfo;
 import android.support.annotation.IntDef;
 import android.support.annotation.IntRange;
 
@@ -21,10 +22,34 @@ public class NavUtils {
     public static final int VERTICAL_BOTTOM = 3;
     public static final int VERTICAL_TOP = 4;
 
-    @IntDef({SYSTEM, NONE, HORIZONTAL_RIGHT, HORIZONTAL_LEFT, VERTICAL_BOTTOM, VERTICAL_TOP})
+    @IntDef({SYSTEM,
+            NONE,
+            HORIZONTAL_RIGHT,
+            HORIZONTAL_LEFT,
+            VERTICAL_BOTTOM,
+            VERTICAL_TOP
+    })
     @IntRange(from = -1, to = 4)
     @Retention(RetentionPolicy.SOURCE)
     public @interface Anim {
+    }
+
+    @IntDef({ActivityInfo.SCREEN_ORIENTATION_BEHIND,
+            ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR,
+            ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE,
+            ActivityInfo.SCREEN_ORIENTATION_NOSENSOR,
+            ActivityInfo.SCREEN_ORIENTATION_PORTRAIT,
+            ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE,
+            ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT,
+            ActivityInfo.SCREEN_ORIENTATION_SENSOR,
+            ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE,
+            ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT,
+            ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED,
+            ActivityInfo.SCREEN_ORIENTATION_USER
+    })
+    @IntRange(from = -1, to = 4)
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface Orientation {
     }
 
 }

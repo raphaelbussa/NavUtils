@@ -1,6 +1,7 @@
 package rebus.navutils.activity;
 
 import android.app.Activity;
+import android.content.pm.ActivityInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -36,11 +37,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     private int enterResId = 0;
     private int exitResId = 0;
 
-    @SuppressWarnings("WrongConstant")
+    @SuppressWarnings({"WrongConstant", "ConstantConditions"})
     @Override
     public void onCreate(Bundle savedInstanceState) {
         if (setTheme() != 0) setTheme(setTheme());
         super.onCreate(savedInstanceState);
+        if (setRequestedOrientation() != 0) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
         if (setLayoutResource() != 0) {
             setContentView(setLayoutResource());
             if (setToolbarId() != 0) {
@@ -252,6 +256,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     public void finish() {
         super.finish();
+        if (customAnimation) {
+            overridePendingTransition(enterResId, exitResId);
+            return;
+        }
         switch (animationType) {
             case NavUtils.HORIZONTAL_RIGHT:
                 overridePendingTransition(R.anim.horizontal_right_finish_enter, R.anim.horizontal_right_finish_exit);
@@ -283,6 +291,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public int setToolbarShadowId() {
         return R.id.default_toolbar_shadow_id;
+    }
+
+    public int setRequestedOrientation() {
+        return 0;
     }
 
     @StyleRes
