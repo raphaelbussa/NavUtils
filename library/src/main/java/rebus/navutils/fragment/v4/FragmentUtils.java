@@ -24,6 +24,7 @@ public class FragmentUtils {
     @NavUtils.Anim
     private int animationType = NavUtils.SYSTEM;
     private boolean noEnterAnimations = false;
+    private boolean noExitAnimations = false;
     private boolean addToBackStack = false;
     private String tag = null;
     private Bundle bundle = null;
@@ -58,6 +59,11 @@ public class FragmentUtils {
 
     public FragmentUtils noEnterAnimations(boolean noEnterAnimations) {
         this.noEnterAnimations = noEnterAnimations;
+        return this;
+    }
+
+    public FragmentUtils noExitAnimations(boolean noExitAnimations) {
+        this.noExitAnimations = noExitAnimations;
         return this;
     }
 
@@ -98,26 +104,26 @@ public class FragmentUtils {
         if (bundle != null) fragment.setArguments(bundle);
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         if (customAnimation) {
-            transaction.setCustomAnimations(noEnterAnimations ? 0 : enterResId, exitResId, noEnterAnimations ? 0 : popEnterResId, popExitResId);
+            transaction.setCustomAnimations(noEnterAnimations ? 0 : enterResId, noExitAnimations ? 0 : exitResId, noEnterAnimations ? 0 : popEnterResId, noExitAnimations ? 0 : popExitResId);
         } else {
             switch (animationType) {
                 case NavUtils.HORIZONTAL_RIGHT:
-                    transaction.setCustomAnimations(noEnterAnimations ? 0 : R.anim.view_flipper_transition_in_left, R.anim.view_flipper_transition_out_left, noEnterAnimations ? 0 : R.anim.view_flipper_transition_in_right, R.anim.view_flipper_transition_out_right);
+                    transaction.setCustomAnimations(noEnterAnimations ? 0 : R.anim.view_flipper_transition_in_left, noExitAnimations ? 0 : R.anim.view_flipper_transition_out_left, noEnterAnimations ? 0 : R.anim.view_flipper_transition_in_right, noExitAnimations ? 0 : R.anim.view_flipper_transition_out_right);
                     break;
                 case NavUtils.HORIZONTAL_LEFT:
-                    transaction.setCustomAnimations(noEnterAnimations ? 0 : R.anim.view_flipper_transition_in_right, R.anim.view_flipper_transition_out_right, noEnterAnimations ? 0 : R.anim.view_flipper_transition_in_left, R.anim.view_flipper_transition_out_left);
+                    transaction.setCustomAnimations(noEnterAnimations ? 0 : R.anim.view_flipper_transition_in_right, noExitAnimations ? 0 : R.anim.view_flipper_transition_out_right, noEnterAnimations ? 0 : R.anim.view_flipper_transition_in_left, noExitAnimations ? 0 : R.anim.view_flipper_transition_out_left);
                     break;
                 case NavUtils.VERTICAL_BOTTOM:
-                    transaction.setCustomAnimations(noEnterAnimations ? 0 : R.anim.view_flipper_transition_in_bottom, R.anim.view_flipper_transition_out_bottom, noEnterAnimations ? 0 : R.anim.view_flipper_transition_in_top, R.anim.view_flipper_transition_out_top);
+                    transaction.setCustomAnimations(noEnterAnimations ? 0 : R.anim.view_flipper_transition_in_bottom, noExitAnimations ? 0 : R.anim.view_flipper_transition_out_bottom, noEnterAnimations ? 0 : R.anim.view_flipper_transition_in_top, noExitAnimations ? 0 : R.anim.view_flipper_transition_out_top);
                     break;
                 case NavUtils.VERTICAL_TOP:
-                    transaction.setCustomAnimations(noEnterAnimations ? 0 : R.anim.view_flipper_transition_in_top, R.anim.view_flipper_transition_out_top, noEnterAnimations ? 0 : R.anim.view_flipper_transition_in_bottom, R.anim.view_flipper_transition_out_bottom);
+                    transaction.setCustomAnimations(noEnterAnimations ? 0 : R.anim.view_flipper_transition_in_top, noExitAnimations ? 0 : R.anim.view_flipper_transition_out_top, noEnterAnimations ? 0 : R.anim.view_flipper_transition_in_bottom, noExitAnimations ? 0 : R.anim.view_flipper_transition_out_bottom);
                     break;
                 case NavUtils.NONE:
                     transaction.setCustomAnimations(0, 0, 0, 0);
                     break;
                 case NavUtils.SYSTEM:
-                    transaction.setCustomAnimations(noEnterAnimations ? 0 : R.anim.fade_in, R.anim.fade_out, noEnterAnimations ? 0 : R.anim.fade_in, R.anim.fade_out);
+                    transaction.setCustomAnimations(noEnterAnimations ? 0 : R.anim.fade_in, noExitAnimations ? 0 : R.anim.fade_out, noEnterAnimations ? 0 : R.anim.fade_in, noExitAnimations ? 0 : R.anim.fade_out);
                 default:
                     break;
             }
@@ -138,7 +144,7 @@ public class FragmentUtils {
         if (addToBackStack) {
             transaction.addToBackStack(tag);
         }
-        transaction.setAllowOptimization(true);
+        transaction.setReorderingAllowed(true);
         transaction.commit();
     }
 

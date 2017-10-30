@@ -1,6 +1,7 @@
 package rebus.navutils;
 
 import android.content.pm.ActivityInfo;
+import android.os.Build;
 import android.support.annotation.IntDef;
 import android.support.annotation.IntRange;
 
@@ -13,7 +14,8 @@ import java.lang.annotation.RetentionPolicy;
 
 public class NavUtils {
 
-    public static final String NAV_ANIM = "rebus.navutils.NavUtils.ANIM_ACTIVITY";
+    public static final String NAV_ANIM = "rebus.navutils.NavUtils.NAV_ANIM";
+    public static final String NAV_SCENE_TRANSITION = "rebus.navutils.NavUtils.NAV_SCENE_TRANSITION";
 
     public static final int NULL = -100;
 
@@ -34,7 +36,6 @@ public class NavUtils {
     @IntRange(from = -1, to = 4)
     @Retention(RetentionPolicy.SOURCE)
     public @interface Anim {
-
     }
 
     @IntDef({NULL,
@@ -54,6 +55,10 @@ public class NavUtils {
     @IntRange(from = -1, to = 4)
     @Retention(RetentionPolicy.SOURCE)
     public @interface Orientation {
+    }
+
+    public static boolean LOLLIPOP() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
     }
 
 }

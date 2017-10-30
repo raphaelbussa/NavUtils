@@ -27,6 +27,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.none).setOnClickListener(this);
         findViewById(R.id.system).setOnClickListener(this);
         findViewById(R.id.chrome).setOnClickListener(this);
+        findViewById(R.id.scene_transition).setOnClickListener(this);
     }
 
     @Override
@@ -36,7 +37,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public int setRequestedOrientation() {
-        return ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE;
+        return ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
     }
 
     @Override
@@ -78,6 +79,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                         .animationType(NavUtils.VERTICAL_BOTTOM)
                         .setToolbarColorRes(R.color.colorAccent)
                         .load("https://github.com/rebus007/NavUtils");
+                break;
+            case R.id.scene_transition:
+                ActivityUtils.Builder(getActivity())
+                        .animationType(NavUtils.SYSTEM)
+                        .start(SceneTransitionActivity.class);
                 break;
         }
 

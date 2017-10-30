@@ -62,6 +62,12 @@
             android:layout_height="wrap_content"
             android:text="Chrome custom tab" />
 
+        <Button
+            android:id="@+id/scene_transition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Scene transition" />
+
     </LinearLayout>
 
     <View

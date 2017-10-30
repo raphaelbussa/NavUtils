@@ -3,11 +3,20 @@ package rebus.navutils.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.AnimRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
+import android.view.View;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 import rebus.navutils.NavUtils;
 import rebus.navutils.R;
@@ -28,6 +37,8 @@ public class ActivityUtils {
     private int enterResId = 0;
     private int exitResId = 0;
 
+    private Pair<View, String> sceneTransition;
+
     private ActivityUtils(Context context) {
         this.context = context;
     }
@@ -38,6 +49,27 @@ public class ActivityUtils {
 
     public ActivityUtils animationType(@NavUtils.Anim int animationType) {
         this.animationType = animationType;
+        return this;
+    }
+
+    public ActivityUtils sceneTransition(Pair<View, String> sceneTransition) {
+        if (NavUtils.LOLLIPOP()) {
+            this.sceneTransition = sceneTransition;
+        }
+        return this;
+    }
+
+    public ActivityUtils sceneTransition(@NonNull View sharedElement, @NonNull String sharedElementName) {
+        if (NavUtils.LOLLIPOP()) {
+            this.sceneTransition = Pair.create(sharedElement, sharedElementName);
+        }
+        return this;
+    }
+
+    public ActivityUtils sceneTransition(@NonNull View sharedElement) {
+        if (NavUtils.LOLLIPOP()) {
+            this.sceneTransition = Pair.create(sharedElement, sharedElement.getTransitionName());
+        }
         return this;
     }
 
@@ -107,8 +139,21 @@ public class ActivityUtils {
                     break;
             }
         }
+
         if (bundle != null) intent.putExtras(bundle);
         intent.putExtra(NavUtils.NAV_ANIM, animationType);
+
+        if (NavUtils.LOLLIPOP()) {
+            if (sceneTransition != null) {
+                if (context instanceof Activity) {
+                    //noinspection unchecked
+                    options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, sceneTransition).toBundle();
+                } else {
+                    throw new RuntimeException("sceneTransition can called only from an activity or activity context");
+                }
+            }
+        }
+
         if (requestCode == -1) {
             ActivityCompat.startActivity(context, intent, options);
         } else {
