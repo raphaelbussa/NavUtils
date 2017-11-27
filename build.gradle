@@ -5,11 +5,11 @@ buildscript {
     ext {
         var = [
                 compileSdk: 27,
-                buildTools: "27.0.0",
+                buildTools: "27.0.1",
                 minSdk    : 14,
                 targetSdk : 27,
-                version   : "1.0.4",
-                supportLib: "27.0.0"
+                version   : "1.0.5",
+                supportLib: "27.0.1"
         ]
     }
 
@@ -20,8 +20,8 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0'
-        classpath 'com.novoda:bintray-release:0.5.0'
+        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.novoda:bintray-release:0.6.1'
     }
 }
 
