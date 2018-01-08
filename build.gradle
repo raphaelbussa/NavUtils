@@ -8,8 +8,8 @@ buildscript {
                 buildTools: "27.0.1",
                 minSdk    : 14,
                 targetSdk : 27,
-                version   : "1.0.5",
-                supportLib: "27.0.1"
+                version   : "2.0.5",
+                supportLib: "27.0.2"
         ]
     }
 

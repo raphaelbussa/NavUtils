@@ -49,6 +49,7 @@ public class ChromeUtils {
     private Bundle bundleStartAnimations = Bundle.EMPTY;
     private Bundle bundleExitAnimations = Bundle.EMPTY;
     private boolean showDefaultShareMenuItem = false;
+
     private ChromeUtils(@NonNull Context context) {
         this.context = context;
     }

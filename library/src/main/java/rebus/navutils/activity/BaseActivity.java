@@ -1,7 +1,6 @@
 package rebus.navutils.activity;
 
 import android.app.Activity;
-import android.content.pm.ActivityInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -48,7 +47,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (setLayoutResource() != 0) {
             setContentView(setLayoutResource());
             if (setToolbarId() != 0) {
-                toolbar = (Toolbar) findViewById(setToolbarId());
+                toolbar = findViewById(setToolbarId());
                 if (toolbar != null) {
                     setSupportActionBar(toolbar);
                 }

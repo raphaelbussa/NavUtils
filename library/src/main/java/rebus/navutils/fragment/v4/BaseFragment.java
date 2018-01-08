@@ -7,6 +7,7 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
+import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -25,7 +26,7 @@ public abstract class BaseFragment extends Fragment {
     private View rootView;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (setLayoutResource() != 0) {
             rootView = inflater.inflate(setLayoutResource(), container, false);
         }
@@ -129,7 +130,7 @@ public abstract class BaseFragment extends Fragment {
         ((BaseActivity) getActivity()).setStatusBarColorRes(color);
     }
 
-    public View findViewById(@IdRes int id) {
+    public <T extends View> T findViewById(@IdRes int id) {
         if (rootView == null || id < 0) return null;
         return rootView.findViewById(id);
     }

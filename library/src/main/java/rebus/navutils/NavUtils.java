@@ -26,6 +26,11 @@ public class NavUtils {
     public static final int VERTICAL_BOTTOM = 3;
 
     public static final int VERTICAL_TOP = 4;
+
+    public static boolean LOLLIPOP() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
+    }
+
     @IntDef({SYSTEM,
             NONE,
             HORIZONTAL_RIGHT,
@@ -55,10 +60,6 @@ public class NavUtils {
     @IntRange(from = -1, to = 4)
     @Retention(RetentionPolicy.SOURCE)
     public @interface Orientation {
-    }
-
-    public static boolean LOLLIPOP() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
     }
 
 }
