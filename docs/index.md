@@ -16,7 +16,7 @@ repositories {
 ```
 ```Gradle
 dependencies {
-    compile 'rebus:nav-utils:2.0.5'
+    compile 'rebus:nav-utils:2.0.7'
 }
 ```
 ### How to use

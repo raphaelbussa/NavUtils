@@ -1,6 +1,5 @@
 package rebus.navutils.sample;
 
-
 import android.os.Bundle;
 import android.support.v4.util.Pair;
 import android.view.View;
@@ -21,6 +20,7 @@ public class SceneTransitionActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         testImage = findViewById(R.id.test_image);
         testTitle = findViewById(R.id.test_title);
+
         findViewById(R.id.result).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
