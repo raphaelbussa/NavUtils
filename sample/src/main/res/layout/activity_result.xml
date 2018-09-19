@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@id/default_toolbar_id"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"

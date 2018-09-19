@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+apply plugin: "guru.stefma.bintrayrelease"
 
 android {
 
@@ -30,12 +30,14 @@ android {
 }
 
 dependencies {
-    implementation "com.android.support:appcompat-v7:${var.supportLib}"
+    implementation "androidx.appcompat:appcompat:${var.supportLib}"
 }
 
+version = '3.0.0'
+group = 'rebus'
 publish {
     userOrg = 'raphaelbussa'
-    groupId = 'rebus'
     artifactId = 'nav-utils'
-    publishVersion = "${var.version}"
+    desc = 'Easy manage commit Fragment and Activity, with some little extra'
+    website = 'https://rebus007.github.io/NavUtils/'
 }

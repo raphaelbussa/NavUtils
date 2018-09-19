@@ -1,9 +1,9 @@
 package rebus.navutils.sample;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 
+import androidx.annotation.Nullable;
 import rebus.navutils.NavUtils;
 import rebus.navutils.fragment.v4.BaseFragment;
 import rebus.navutils.fragment.v4.FragmentUtils;

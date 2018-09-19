@@ -2,11 +2,12 @@ package rebus.navutils;
 
 import android.content.pm.ActivityInfo;
 import android.os.Build;
-import android.support.annotation.IntDef;
-import android.support.annotation.IntRange;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
+import androidx.annotation.IntDef;
+import androidx.annotation.IntRange;
 
 /**
  * Created by raphaelbussa on 19/05/17.

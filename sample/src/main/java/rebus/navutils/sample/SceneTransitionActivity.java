@@ -1,7 +1,7 @@
 package rebus.navutils.sample;
 
 import android.os.Bundle;
-import android.support.v4.util.Pair;
+import androidx.core.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;

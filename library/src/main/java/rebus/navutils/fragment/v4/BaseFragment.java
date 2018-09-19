@@ -1,21 +1,22 @@
 package rebus.navutils.fragment.v4;
 
+import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.IdRes;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.IdRes;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import rebus.navutils.activity.BaseActivity;
 
 /**
@@ -130,6 +131,7 @@ public abstract class BaseFragment extends Fragment {
         ((BaseActivity) getActivity()).setStatusBarColorRes(color);
     }
 
+    @SuppressLint("ResourceType")
     public <T extends View> T findViewById(@IdRes int id) {
         if (rootView == null || id < 0) return null;
         return rootView.findViewById(id);
