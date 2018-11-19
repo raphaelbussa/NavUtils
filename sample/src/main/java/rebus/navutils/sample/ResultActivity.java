@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import rebus.navutils.NavUtils;
 import rebus.navutils.activity.BaseActivity;
-import rebus.navutils.fragment.v4.FragmentUtils;
+import rebus.navutils.fragment.FragmentUtils;
 
 public class ResultActivity extends BaseActivity {
 

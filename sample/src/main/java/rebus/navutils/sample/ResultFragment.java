@@ -5,8 +5,8 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 import rebus.navutils.NavUtils;
-import rebus.navutils.fragment.v4.BaseFragment;
-import rebus.navutils.fragment.v4.FragmentUtils;
+import rebus.navutils.fragment.BaseFragment;
+import rebus.navutils.fragment.FragmentUtils;
 
 public class ResultFragment extends BaseFragment implements View.OnClickListener {
 

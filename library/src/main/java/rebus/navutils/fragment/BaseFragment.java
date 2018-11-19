@@ -1,4 +1,4 @@
-package rebus.navutils.fragment.v4;
+package rebus.navutils.fragment;
 
 import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;

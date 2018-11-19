@@ -12,6 +12,7 @@ import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.util.Pair;
 import android.view.View;
 
+import androidx.fragment.app.Fragment;
 import rebus.navutils.NavUtils;
 import rebus.navutils.R;
 
@@ -21,6 +22,7 @@ import rebus.navutils.R;
 
 public class ActivityUtils {
 
+    private Fragment fragment;
     private Context context;
 
     @NavUtils.Anim
@@ -33,12 +35,19 @@ public class ActivityUtils {
 
     private Pair<View, String> sceneTransition;
 
-    private ActivityUtils(Context context) {
+    private ActivityUtils(Context context, Fragment fragment) {
+        this.fragment = fragment;
         this.context = context;
     }
 
+    @NonNull
     public static ActivityUtils Builder(Context context) {
-        return new ActivityUtils(context);
+        return new ActivityUtils(context, null);
+    }
+
+    @NonNull
+    public static ActivityUtils Builder(Fragment fragment) {
+        return new ActivityUtils(fragment.getContext(), fragment);
     }
 
     public ActivityUtils animationType(@NavUtils.Anim int animationType) {
@@ -139,7 +148,10 @@ public class ActivityUtils {
 
         if (NavUtils.LOLLIPOP()) {
             if (sceneTransition != null) {
-                if (context instanceof Activity) {
+                if (fragment != null) {
+                    //noinspection unchecked,ConstantConditions
+                    options = ActivityOptionsCompat.makeSceneTransitionAnimation(fragment.getActivity(), sceneTransition).toBundle();
+                } else if (context instanceof Activity) {
                     //noinspection unchecked
                     options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, sceneTransition).toBundle();
                 } else {
@@ -151,10 +163,12 @@ public class ActivityUtils {
         if (requestCode == -1) {
             ActivityCompat.startActivity(context, intent, options);
         } else {
-            if (context instanceof Activity) {
+            if (fragment != null) {
+                fragment.startActivityForResult(intent, requestCode, options);
+            } else if (context instanceof Activity) {
                 ActivityCompat.startActivityForResult((Activity) context, intent, requestCode, options);
             } else {
-                throw new RuntimeException("startForResult can called only from an activity or activity context");
+                throw new RuntimeException("startForResult can called only from an activity, or a fragment");
             }
         }
     }

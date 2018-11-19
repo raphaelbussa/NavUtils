@@ -1,4 +1,4 @@
-package rebus.navutils.fragment.v4;
+package rebus.navutils.fragment;
 
 import android.content.Context;
 import android.os.Bundle;

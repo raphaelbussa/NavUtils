@@ -30,10 +30,10 @@ android {
 }
 
 dependencies {
-    implementation "androidx.appcompat:appcompat:${var.supportLib}"
+    implementation 'androidx.appcompat:appcompat:1.0.2'
 }
 
-version = '3.0.0'
+version = '3.0.2'
 group = 'rebus'
 publish {
     userOrg = 'raphaelbussa'

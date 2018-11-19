@@ -22,5 +22,5 @@ android {
 
 dependencies {
     implementation project(':library')
-    implementation "androidx.appcompat:appcompat:${var.supportLib}"
+    implementation 'androidx.appcompat:appcompat:1.0.2'
 }
