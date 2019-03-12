@@ -1,4 +1,4 @@
-$dokka.format:kotlin-website
+$dokka.format:html
 $dokka.linkExtension:html
 $dokka.location:com.raphaelbussa.navutils$pushActivity(androidx.fragment.app.Fragment, kotlin.reflect.KClass((kotlin.Any)), kotlin.Function1((com.raphaelbussa.navutils.activity.ActivityBuilder, kotlin.Unit)))com.raphaelbussa.navutils/androidx.fragment.app.-fragment/push-activity.html
 $dokka.location:com.raphaelbussa.navutils$pushActivity(androidx.fragment.app.FragmentActivity, kotlin.reflect.KClass((kotlin.Any)), kotlin.Function1((com.raphaelbussa.navutils.activity.ActivityBuilder, kotlin.Unit)))com.raphaelbussa.navutils/androidx.fragment.app.-fragment-activity/push-activity.html
