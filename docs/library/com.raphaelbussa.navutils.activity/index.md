@@ -21,6 +21,9 @@ layout: api
 <td markdown="1">
 <div class="signature"><code><span class="keyword">class </span><span class="identifier">ActivityBuilder</span></code></div>
 
+ActivityBuilder
+
+
 </td>
 </tr>
 <tr>
@@ -33,6 +36,9 @@ layout: api
 <td markdown="1">
 <div class="signature"><code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">BaseActivity</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">AppCompatActivity</span></code></div>
 
+BaseActivity
+
+
 </td>
 </tr>
 <tr>
@@ -44,6 +50,9 @@ layout: api
 </td>
 <td markdown="1">
 <div class="signature"><code><span class="keyword">class </span><span class="identifier">NavUtilsPushActivity</span></code></div>
+
+NavUtilsPushActivity
+
 
 </td>
 </tr>

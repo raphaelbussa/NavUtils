@@ -21,6 +21,9 @@ layout: api
 <td markdown="1">
 <div class="signature"><code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">BaseFragment</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Fragment</span></code></div>
 
+BaseFragment
+
+
 </td>
 </tr>
 <tr>
@@ -33,6 +36,9 @@ layout: api
 <td markdown="1">
 <div class="signature"><code><span class="keyword">class </span><span class="identifier">FragmentBuilder</span></code></div>
 
+FragmentBuilder
+
+
 </td>
 </tr>
 <tr>
@@ -44,6 +50,9 @@ layout: api
 </td>
 <td markdown="1">
 <div class="signature"><code><span class="keyword">class </span><span class="identifier">NavUtilsPushFragment</span></code></div>
+
+NavUtilsPushFragment
+
 
 </td>
 </tr>

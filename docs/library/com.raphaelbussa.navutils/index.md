@@ -21,6 +21,9 @@ layout: api
 <td markdown="1">
 <div class="signature"><code><span class="keyword">class </span><span class="identifier">NavUtils</span></code></div>
 
+NavUtils
+
+
 </td>
 </tr>
 </tbody>

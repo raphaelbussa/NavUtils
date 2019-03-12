@@ -8,3 +8,9 @@ layout: api
 # animationType
 
 <div class="signature"><code><span class="keyword">var </span><span class="identifier">animationType</span><span class="symbol">: </span><a href="../../com.raphaelbussa.navutils/-nav-utils/-anim/index.html"><span class="identifier">Anim</span></a></code></div>
+
+Anim
+
+### Property
+
+<code>animationType</code> - Anim

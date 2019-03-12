@@ -8,3 +8,9 @@ layout: api
 # toolbar
 
 <div class="signature"><code><span class="keyword">var </span><span class="identifier">toolbar</span><span class="symbol">: </span><span class="identifier">Toolbar</span><span class="symbol">?</span></code></div>
+
+Toolbar?
+
+### Property
+
+<code>toolbar</code> - Toolbar?

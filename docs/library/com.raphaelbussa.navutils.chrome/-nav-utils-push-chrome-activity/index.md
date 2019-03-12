@@ -9,6 +9,8 @@ layout: api
 
 <div class="signature"><code><span class="keyword">class </span><span class="identifier">NavUtilsPushChromeActivity</span></code></div>
 
+NavUtilsPushChromeActivity
+
 ### Constructors
 
 <table class="api-docs-table">

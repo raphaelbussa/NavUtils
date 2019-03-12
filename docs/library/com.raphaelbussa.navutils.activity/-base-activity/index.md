@@ -9,6 +9,8 @@ layout: api
 
 <div class="signature"><code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">BaseActivity</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">AppCompatActivity</span></code></div>
 
+BaseActivity
+
 ### Constructors
 
 <table class="api-docs-table">
@@ -22,6 +24,9 @@ layout: api
 </td>
 <td markdown="1">
 <div class="signature"><code><span class="identifier">BaseActivity</span><span class="symbol">(</span><span class="symbol">)</span></code></div>
+
+BaseActivity
+
 
 </td>
 </tr>
@@ -42,6 +47,9 @@ layout: api
 <td markdown="1">
 <div class="signature"><code><span class="keyword">val </span><span class="identifier">activity</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/app/Activity.html"><span class="identifier">Activity</span></a></code></div>
 
+Activity
+
+
 </td>
 </tr>
 <tr>
@@ -53,6 +61,9 @@ layout: api
 </td>
 <td markdown="1">
 <div class="signature"><code><span class="keyword">var </span><span class="identifier">animationType</span><span class="symbol">: </span><a href="../../com.raphaelbussa.navutils/-nav-utils/-anim/index.html"><span class="identifier">Anim</span></a></code></div>
+
+Anim
+
 
 </td>
 </tr>
@@ -66,6 +77,9 @@ layout: api
 <td markdown="1">
 <div class="signature"><code><span class="keyword">var </span><span class="identifier">toolbar</span><span class="symbol">: </span><span class="identifier">Toolbar</span><span class="symbol">?</span></code></div>
 
+Toolbar?
+
+
 </td>
 </tr>
 <tr>
@@ -77,6 +91,9 @@ layout: api
 </td>
 <td markdown="1">
 <div class="signature"><code><span class="keyword">var </span><span class="identifier">toolbarShadow</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/view/View.html"><span class="identifier">View</span></a><span class="symbol">?</span></code></div>
+
+View?
+
 
 </td>
 </tr>

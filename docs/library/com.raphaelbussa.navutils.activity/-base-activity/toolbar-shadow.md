@@ -8,3 +8,9 @@ layout: api
 # toolbarShadow
 
 <div class="signature"><code><span class="keyword">var </span><span class="identifier">toolbarShadow</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/view/View.html"><span class="identifier">View</span></a><span class="symbol">?</span></code></div>
+
+View?
+
+### Property
+
+<code>toolbarShadow</code> - View?

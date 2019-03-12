@@ -9,6 +9,8 @@ layout: api
 
 <div class="signature"><code><span class="keyword">class </span><span class="identifier">ActivityBuilder</span></code></div>
 
+ActivityBuilder
+
 ### Constructors
 
 <table class="api-docs-table">
@@ -22,6 +24,9 @@ layout: api
 </td>
 <td markdown="1">
 <div class="signature"><code><span class="identifier">ActivityBuilder</span><span class="symbol">(</span><span class="symbol">)</span></code></div>
+
+ActivityBuilder
+
 
 </td>
 </tr>

@@ -9,6 +9,8 @@ layout: api
 
 <div class="signature"><code><span class="keyword">class </span><span class="identifier">ChromeBuilder</span></code></div>
 
+ChromeBuilder
+
 ### Constructors
 
 <table class="api-docs-table">

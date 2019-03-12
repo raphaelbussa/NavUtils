@@ -9,6 +9,8 @@ layout: api
 
 <div class="signature"><code><span class="keyword">class </span><span class="identifier">NavUtils</span></code></div>
 
+NavUtils
+
 ### Types
 
 <table class="api-docs-table">
@@ -44,6 +46,9 @@ Anim
 </td>
 <td markdown="1">
 <div class="signature"><code><span class="identifier">NavUtils</span><span class="symbol">(</span><span class="symbol">)</span></code></div>
+
+NavUtils
+
 
 </td>
 </tr>

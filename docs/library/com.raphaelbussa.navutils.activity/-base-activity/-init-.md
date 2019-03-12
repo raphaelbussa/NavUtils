@@ -8,3 +8,6 @@ layout: api
 # &lt;init&gt;
 
 <div class="signature"><code><span class="identifier">BaseActivity</span><span class="symbol">(</span><span class="symbol">)</span></code></div>
+
+BaseActivity
+

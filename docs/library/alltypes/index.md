@@ -13,6 +13,9 @@ layout: api
 </td>
 <td markdown="1">
 
+ActivityBuilder
+
+
 </td>
 </tr>
 <tr>
@@ -20,6 +23,9 @@ layout: api
 <a href="../com.raphaelbussa.navutils.activity/-base-activity/index.html">com.raphaelbussa.navutils.activity.BaseActivity</a>
 </td>
 <td markdown="1">
+
+BaseActivity
+
 
 </td>
 </tr>
@@ -29,6 +35,9 @@ layout: api
 </td>
 <td markdown="1">
 
+BaseFragment
+
+
 </td>
 </tr>
 <tr>
@@ -36,6 +45,9 @@ layout: api
 <a href="../com.raphaelbussa.navutils.chrome/-chrome-builder/index.html">com.raphaelbussa.navutils.chrome.ChromeBuilder</a>
 </td>
 <td markdown="1">
+
+ChromeBuilder
+
 
 </td>
 </tr>
@@ -61,6 +73,9 @@ layout: api
 </td>
 <td markdown="1">
 
+FragmentBuilder
+
+
 </td>
 </tr>
 <tr>
@@ -68,6 +83,9 @@ layout: api
 <a href="../com.raphaelbussa.navutils/-nav-utils/index.html">com.raphaelbussa.navutils.NavUtils</a>
 </td>
 <td markdown="1">
+
+NavUtils
+
 
 </td>
 </tr>
@@ -77,6 +95,9 @@ layout: api
 </td>
 <td markdown="1">
 
+NavUtilsPushActivity
+
+
 </td>
 </tr>
 <tr>
@@ -85,6 +106,9 @@ layout: api
 </td>
 <td markdown="1">
 
+NavUtilsPushChromeActivity
+
+
 </td>
 </tr>
 <tr>
@@ -92,6 +116,9 @@ layout: api
 <a href="../com.raphaelbussa.navutils.fragment/-nav-utils-push-fragment/index.html">com.raphaelbussa.navutils.fragment.NavUtilsPushFragment</a>
 </td>
 <td markdown="1">
+
+NavUtilsPushFragment
+
 
 </td>
 </tr>

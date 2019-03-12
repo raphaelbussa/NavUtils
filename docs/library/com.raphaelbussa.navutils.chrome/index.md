@@ -21,6 +21,9 @@ layout: api
 <td markdown="1">
 <div class="signature"><code><span class="keyword">class </span><span class="identifier">ChromeBuilder</span></code></div>
 
+ChromeBuilder
+
+
 </td>
 </tr>
 <tr>
@@ -32,6 +35,9 @@ layout: api
 </td>
 <td markdown="1">
 <div class="signature"><code><span class="keyword">class </span><span class="identifier">NavUtilsPushChromeActivity</span></code></div>
+
+NavUtilsPushChromeActivity
+
 
 </td>
 </tr>

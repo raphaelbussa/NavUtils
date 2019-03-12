@@ -8,3 +8,9 @@ layout: api
 # activity
 
 <div class="signature"><code><span class="keyword">val </span><span class="identifier">activity</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/app/Activity.html"><span class="identifier">Activity</span></a></code></div>
+
+Activity
+
+### Property
+
+<code>activity</code> - Activity

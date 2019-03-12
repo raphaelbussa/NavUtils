@@ -8,3 +8,9 @@ layout: api
 # supportFragmentManager
 
 <div class="signature"><code><span class="keyword">val </span><span class="identifier">supportFragmentManager</span><span class="symbol">: </span><span class="identifier">FragmentManager</span><span class="symbol">?</span></code></div>
+
+FragmentManager?
+
+### Property
+
+<code>supportFragmentManager</code> - FragmentManager?

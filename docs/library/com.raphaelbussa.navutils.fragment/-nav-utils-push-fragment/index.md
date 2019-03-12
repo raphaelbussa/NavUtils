@@ -9,6 +9,8 @@ layout: api
 
 <div class="signature"><code><span class="keyword">class </span><span class="identifier">NavUtilsPushFragment</span></code></div>
 
+NavUtilsPushFragment
+
 ### Constructors
 
 <table class="api-docs-table">
