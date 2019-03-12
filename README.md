@@ -1,7 +1,7 @@
 # Nav Utils
 [![Download](https://api.bintray.com/packages/raphaelbussa/maven/navutils/images/download.svg) ](https://bintray.com/raphaelbussa/maven/navutils/_latestVersion)
 
-![Logo](https://raw.githubusercontent.com/rebus007/NavUtils/master/sample/src/main/ic_launcher-web.png)
+![Logo](https://raw.githubusercontent.com/raphaelbussa/NavUtils/master/sample/src/main/ic_launcher-web.png)
 
 Easy manage commit Fragment and Activity, with some little extra
 
@@ -25,10 +25,10 @@ WIP
 # That's all folks!
 
 ### Sample
-Browse the sample code [here](https://github.com/rebus007/NavUtils/tree/master/sample)
+Browse the sample code [here](https://github.com/raphaelbussa/NavUtils/tree/master/sample)
 
 ### Javadoc
-Browse Javadoc [here](https://rebus007.github.io/NavUtils/library/)
+Browse Javadoc [here](https://raphaelbussa.github.io/NavUtils/library/)
 
 ### App using Nav Utils
 If you use this lib [contact me](mailto:raphaelbussa@gmail.com?subject=NavUtils) and I will add it to the list below:
@@ -42,7 +42,7 @@ Raphaël Bussa - [raphaelbussa@gmail.com](mailto:raphaelbussa@gmail.com)
 ```
 The MIT License (MIT)
 
-Copyright (c) 2017 Raphaël Bussa
+Copyright (c) 2019 Raphaël Bussa
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
