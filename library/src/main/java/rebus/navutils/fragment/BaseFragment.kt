@@ -119,7 +119,7 @@ abstract class BaseFragment : Fragment() {
 
     @SuppressLint("ResourceType")
     fun <T : View> findViewById(@IdRes id: Int): T? {
-        return if (rootView == null || id < 0) null else rootView!!.findViewById(id)
+        return if (rootView == null || id < 0) null else rootView?.findViewById(id)
     }
 
     @LayoutRes

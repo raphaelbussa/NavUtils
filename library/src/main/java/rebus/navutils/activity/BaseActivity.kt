@@ -60,37 +60,36 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun setIcon(@DrawableRes icon: Int) {
-        if (supportActionBar != null) supportActionBar!!.setIcon(icon)
+        supportActionBar?.setIcon(icon)
     }
 
     fun setIcon(icon: Drawable) {
-        if (supportActionBar != null) supportActionBar!!.setIcon(icon)
+        supportActionBar?.setIcon(icon)
     }
 
     fun setTitle(title: String) {
-        if (supportActionBar != null) supportActionBar!!.setTitle(title)
+        supportActionBar?.title = title
     }
 
     override fun setTitle(@StringRes title: Int) {
-        if (supportActionBar != null) supportActionBar!!.setTitle(title)
+        supportActionBar?.setTitle(title)
     }
 
     fun setTitlePost(title: String) {
-        if (toolbar != null)
-            toolbar!!.post { if (supportActionBar != null) supportActionBar!!.setTitle(title) }
+        toolbar?.post { supportActionBar?.title = title }
     }
 
     fun setTitlePost(@StringRes title: Int) {
-        if (toolbar != null)
-            toolbar!!.post { if (supportActionBar != null) supportActionBar!!.setTitle(title) }
+        toolbar?.post { supportActionBar?.setTitle(title) }
     }
 
     fun setTitleColorRes(@ColorRes color: Int) {
         titleColor = ContextCompat.getColor(this, color)
     }
 
+    @Suppress("OverridingDeprecatedMember")
     override fun setTitleColor(@ColorInt color: Int) {
-        if (toolbar != null) toolbar!!.setTitleTextColor(color)
+        toolbar?.setTitleTextColor(color)
     }
 
     fun removeTitle() {
@@ -98,21 +97,19 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun setSubtitle(subtitle: String) {
-        if (supportActionBar != null) supportActionBar!!.setSubtitle(subtitle)
+        supportActionBar?.subtitle = subtitle
     }
 
     fun setSubtitle(@StringRes subtitle: Int) {
-        if (supportActionBar != null) supportActionBar!!.setSubtitle(subtitle)
+        supportActionBar?.setSubtitle(subtitle)
     }
 
     fun setSubtitlePost(subtitle: String) {
-        if (toolbar != null)
-            toolbar!!.post { if (supportActionBar != null) supportActionBar!!.setSubtitle(subtitle) }
+        toolbar?.post { supportActionBar?.subtitle = subtitle }
     }
 
     fun setSubtitlePost(@StringRes subtitle: Int) {
-        if (toolbar != null)
-            toolbar!!.post { if (supportActionBar != null) supportActionBar!!.setSubtitle(subtitle) }
+        toolbar?.post { supportActionBar?.setSubtitle(subtitle) }
     }
 
     fun setSubtitleColorRes(@ColorRes color: Int) {
@@ -120,7 +117,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun setSubtitleColor(@ColorInt color: Int) {
-        if (toolbar != null) toolbar!!.setSubtitleTextColor(color)
+        toolbar?.setSubtitleTextColor(color)
     }
 
     fun removeSubtitle() {
@@ -128,15 +125,15 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun setNavigationIcon(@DrawableRes icon: Int) {
-        if (toolbar != null) toolbar!!.setNavigationIcon(icon)
+        toolbar?.setNavigationIcon(icon)
     }
 
     fun setNavigationIcon(icon: Drawable) {
-        if (toolbar != null) toolbar!!.navigationIcon = icon
+        toolbar?.navigationIcon = icon
     }
 
     fun setNavigationOnClickListener(onClickListener: View.OnClickListener) {
-        if (toolbar != null) toolbar!!.setNavigationOnClickListener(onClickListener)
+        toolbar?.setNavigationOnClickListener(onClickListener)
     }
 
     fun setFinishOnNavigationOnClickListener() {
@@ -164,7 +161,6 @@ abstract class BaseActivity : AppCompatActivity() {
         setStatusBarColor(ContextCompat.getColor(this, color))
     }
 
-    @JvmOverloads
     fun setLightStatusBar(view: View = findViewById(android.R.id.content)) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             view.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
@@ -200,6 +196,7 @@ abstract class BaseActivity : AppCompatActivity() {
             NavUtils.Anim.VERTICAL_TOP -> overridePendingTransition(R.anim.fade_in, R.anim.vertical_top_finish_exit)
             NavUtils.Anim.NONE -> overridePendingTransition(0, 0)
             NavUtils.Anim.SYSTEM -> {
+
             }
         }
     }
@@ -216,13 +213,9 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     @Orientation
-    open fun setRequestedOrientation(): Int {
-        return NULL
-    }
+    open fun setRequestedOrientation() = NULL
 
     @StyleRes
-    fun setTheme(): Int {
-        return 0
-    }
+    fun setTheme() = 0
 
 }
