@@ -1,12 +1,13 @@
 # Nav Utils
 [![Download](https://api.bintray.com/packages/raphaelbussa/maven/navutils/images/download.svg) ](https://bintray.com/raphaelbussa/maven/navutils/_latestVersion)
 
-![Logo](https://raw.githubusercontent.com/raphaelbussa/NavUtils/master/sample/src/main/ic_launcher-web.png)
+![Logo](https://raw.githubusercontent.com/rebus007/NavUtils/master/sample/src/main/ic_launcher-web.png)
 
 Easy manage commit Fragment and Activity, with some little extra
 
 ### Import
 At the moment the library is in my personal maven repo
+
 ```Gradle
 repositories {
     maven {
@@ -14,21 +15,69 @@ repositories {
     }
 }
 ```
+
 ```Gradle
 dependencies {
     implementation 'com.raphaelbussa:navutils:4.0.0.alpha2'
 }
 ```
 ### How to use
-WIP
+#### Activity
+The library provide several methods to commit a new activity, in Fragment and Activity you can use extentions
+
+```Kotlin
+pushActivity(ResultActivity::class) {
+    //remove all activity from current stack 
+    clearStack(true)
+    //add arguments 
+    arguments(Bundle.EMPTY)
+    //add standard animation
+    animationType(NavUtils.Anim.HORIZONTAL_RIGHT)
+    //add custom animation
+    customAnimation(R.anim.popup_enter, R.anim.popup_exit)
+    //add scene transition
+    sceneTransition(view)     
+}.commit()
+```
+For commit an Activty with result
+
+```Kotlin
+.commit(requestCode = 9000)
+```
+#### Fragment
+The library provide several methods to commit a new fragment, in Fragment and Activity you can use extentions
+
+```Kotlin
+pushFragment(ResultFragment::class, R.id.container) {
+    //add standard animation
+    animationType(animationType)
+    //remove start animation
+    noEnterAnimations(true)
+    //remove exit animation
+    noExitAnimations(true)
+    //add arguments 
+    arguments(Bundle.EMPTY)
+    //add custom animation
+    customAnimation(R.anim.popup_enter, R.anim.popup_exit, R.anim.popup_enter, R.anim.popup_exit)
+    //add fragment to backstack
+    addToBackStack()
+    //set custom tag
+    tag("custom tag")
+}.replace()
+```
+If you want to add
+
+```Kotlin
+.add()
+```
 
 # That's all folks!
 
 ### Sample
 Browse the sample code [here](https://github.com/raphaelbussa/NavUtils/tree/master/sample)
 
-### Javadoc
-Browse Javadoc [here](https://raphaelbussa.github.io/NavUtils/library/)
+### Kotlin doc
+Browse Kotlin doc [here](https://raphaelbussa.github.io/NavUtils/library/)
 
 ### App using Nav Utils
 If you use this lib [contact me](mailto:raphaelbussa@gmail.com?subject=NavUtils) and I will add it to the list below:
