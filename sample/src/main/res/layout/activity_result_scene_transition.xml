@@ -9,15 +9,15 @@
     tools:ignore="HardcodedText,ContentDescription">
 
     <ImageView
-        android:id="@+id/test_image"
+        android:id="@+id/testImage"
         android:layout_width="match_parent"
         android:layout_height="220dp"
         android:scaleType="centerCrop"
         android:src="@drawable/cover_sample_1"
-        android:transitionName="test_image" />
+        android:transitionName="testImage" />
 
     <TextView
-        android:id="@+id/test_title"
+        android:id="@+id/testTitle"
         android:padding="8dp"
         android:textSize="20sp"
         android:text="@string/app_name"

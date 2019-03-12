@@ -21,25 +21,25 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/horizontal_right"
+            android:id="@+id/horizontalRight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Activity HORIZONTAL_RIGHT" />
 
         <Button
-            android:id="@+id/horizontal_left"
+            android:id="@+id/horizontalLeft"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Activity HORIZONTAL_LEFT" />
 
         <Button
-            android:id="@+id/vertical_bottom"
+            android:id="@+id/verticalBottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Activity VERTICAL_BOTTOM" />
 
         <Button
-            android:id="@+id/vertical_top"
+            android:id="@+id/verticalTop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Activity VERTICAL_TOP" />
@@ -63,7 +63,7 @@
             android:text="Chrome custom tab" />
 
         <Button
-            android:id="@+id/scene_transition"
+            android:id="@+id/sceneTransition"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Scene transition" />
