@@ -5,24 +5,24 @@
     android:layout_height="match_parent"
     android:background="#00ffff"
     android:orientation="vertical"
-    tools:targetApi="lollipop"
-    tools:ignore="HardcodedText,ContentDescription">
+    tools:ignore="HardcodedText,ContentDescription"
+    tools:targetApi="lollipop">
 
     <ImageView
-        android:id="@+id/test_image"
+        android:id="@+id/testImage"
         android:layout_width="match_parent"
         android:layout_height="220dp"
         android:scaleType="centerCrop"
         android:src="@drawable/cover_sample_1"
-        android:transitionName="test_image" />
+        android:transitionName="testImage" />
 
     <TextView
-        android:id="@+id/test_title"
-        android:padding="8dp"
-        android:textSize="20sp"
-        android:text="@string/app_name"
+        android:id="@+id/testTitle"
         android:layout_width="match_parent"
-        android:transitionName="test_title"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/app_name"
+        android:textSize="20sp"
+        android:transitionName="test_title" />
 
 </LinearLayout>

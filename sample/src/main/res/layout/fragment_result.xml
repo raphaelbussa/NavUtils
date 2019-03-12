@@ -5,7 +5,7 @@
     android:background="@color/colorAccent">
 
     <Button
-        android:id="@+id/new_fragment"
+        android:id="@+id/newFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"

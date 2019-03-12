@@ -5,26 +5,26 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:targetApi="lollipop"
-    tools:ignore="HardcodedText,ContentDescription">
+    tools:ignore="HardcodedText,ContentDescription"
+    tools:targetApi="lollipop">
 
     <ImageView
-        android:id="@+id/test_image"
+        android:id="@+id/testImage"
         android:layout_width="320dp"
         android:layout_height="200dp"
-        android:transitionName="test_image"
         android:scaleType="centerCrop"
-        android:src="@drawable/cover_sample_1" />
+        android:src="@drawable/cover_sample_1"
+        android:transitionName="testImage" />
 
     <TextView
         android:id="@+id/test_title"
-        android:padding="8dp"
-        android:transitionName="test_title"
-        android:gravity="center"
-        android:textSize="12sp"
-        android:text="@string/app_name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="@string/app_name"
+        android:textSize="12sp"
+        android:transitionName="testTitle" />
 
     <Button
         android:id="@+id/result"

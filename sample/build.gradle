@@ -1,11 +1,13 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
 
     compileSdkVersion var.compileSdk
 
     defaultConfig {
-        applicationId "rebus.navutils.sample"
+        applicationId "com.raphaelbussa.navutils.sample"
         minSdkVersion var.minSdk
         targetSdkVersion var.targetSdk
         versionCode 1
@@ -22,5 +24,6 @@ android {
 
 dependencies {
     implementation project(':library')
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.21'
     implementation 'androidx.appcompat:appcompat:1.0.2'
 }
