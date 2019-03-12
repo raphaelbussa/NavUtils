@@ -44,7 +44,7 @@ publish {
     userOrg = 'raphaelbussa'
     groupId = 'com.raphaelbussa'
     artifactId = 'navutils'
-    publishVersion = '4.0.0.alpha1'
+    publishVersion = '4.0.0.alpha2'
     desc = 'Easy manage commit Fragment and Activity, with some little extra'
     website = 'https://raphaelbussa.github.io/NavUtils/'
 }

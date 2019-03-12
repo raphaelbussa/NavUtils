@@ -13,6 +13,16 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.raphaelbussa.navutils.*
 
+/**
+ * BaseActivity
+ * @property toolbar Toolbar?
+ * @property toolbarShadow View?
+ * @property animationType Anim
+ * @property customAnimation Boolean
+ * @property enterResId Int
+ * @property exitResId Int
+ * @property activity Activity
+ */
 @SuppressLint("WrongConstant")
 @Suppress("MemberVisibilityCanBePrivate", "OverridingDeprecatedMember", "unused")
 abstract class BaseActivity : AppCompatActivity() {

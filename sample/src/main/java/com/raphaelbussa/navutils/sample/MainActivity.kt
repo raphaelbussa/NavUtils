@@ -1,8 +1,10 @@
 package com.raphaelbussa.navutils.sample
 
 import android.content.pm.ActivityInfo
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContextCompat
 import com.raphaelbussa.navutils.NavUtils
 import com.raphaelbussa.navutils.activity.BaseActivity
 import com.raphaelbussa.navutils.pushActivity
@@ -67,7 +69,13 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             }
             R.id.chrome -> {
                 pushChromeCustomTab {
-                    animationType(NavUtils.Anim.VERTICAL_BOTTOM)
+                    showTitle(true)
+                    animationType(NavUtils.Anim.HORIZONTAL_RIGHT)
+                    showDefaultShareMenuItem(true)
+                    /*startAnimations(R.anim.popup_enter, R.anim.popup_exit)
+                    exitAnimations(R.anim.popup_enter, R.anim.popup_exit)*/
+                    toolbarColor(ContextCompat.getColor(activity, R.color.colorAccent))
+                    closeButtonIcon(BitmapFactory.decodeResource(resources, R.drawable.ic_back))
                 }.load("https://github.com/raphaelbussa/NavUtils")
             }
             R.id.sceneTransition -> {

@@ -12,6 +12,17 @@ import androidx.fragment.app.Fragment
 import com.raphaelbussa.navutils.*
 import kotlin.reflect.KClass
 
+/**
+ * ActivityBuilder
+ * @property animationType Anim
+ * @property clearStack Boolean
+ * @property arguments Bundle?
+ * @property customAnimation Boolean
+ * @property enterResId Int
+ * @property exitResId Int
+ * @property sceneTransition Pair<View?, String>?
+ */
+@Suppress("unused")
 @NavUtilsMarker
 class ActivityBuilder {
 
@@ -98,6 +109,14 @@ class ActivityBuilder {
 
 }
 
+/**
+ * NavUtilsPushActivity
+ * @property fragment Fragment?
+ * @property context Context?
+ * @property target KClass<*>
+ * @property activity ActivityBuilder
+ * @constructor
+ */
 class NavUtilsPushActivity(
         private val fragment: Fragment? = null,
         private val context: Context?,

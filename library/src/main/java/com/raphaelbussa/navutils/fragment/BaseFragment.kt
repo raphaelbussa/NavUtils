@@ -12,6 +12,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.raphaelbussa.navutils.activity.BaseActivity
 
+/**
+ * BaseFragment
+ * @property rootView View?
+ * @property toolbar Toolbar?
+ * @property toolbarShadow View?
+ * @property supportFragmentManager FragmentManager?
+ */
 @SuppressLint("ResourceType")
 @Suppress("MemberVisibilityCanBePrivate", "unused", "UNUSED_PARAMETER")
 abstract class BaseFragment : Fragment() {

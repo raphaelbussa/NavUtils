@@ -21,6 +21,9 @@ const val NULL = -100
 @DslMarker
 internal annotation class NavUtilsMarker
 
+/**
+ * NavUtils
+ */
 class NavUtils {
 
     /**

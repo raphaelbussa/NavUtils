@@ -8,7 +8,21 @@ import com.raphaelbussa.navutils.NavUtils
 import com.raphaelbussa.navutils.NavUtilsMarker
 import com.raphaelbussa.navutils.R
 
-@Suppress("unused")
+/**
+ * FragmentBuilder
+ * @property animationType Anim
+ * @property noEnterAnimations Boolean
+ * @property noExitAnimations Boolean
+ * @property addToBackStack Boolean
+ * @property tag String?
+ * @property bundle Bundle?
+ * @property customAnimation Boolean
+ * @property enterResId Int
+ * @property exitResId Int
+ * @property popEnterResId Int
+ * @property popExitResId Int
+ */
+@Suppress("unused", "MemberVisibilityCanBePrivate")
 @NavUtilsMarker
 class FragmentBuilder {
 
@@ -99,6 +113,14 @@ class FragmentBuilder {
 
 }
 
+/**
+ * NavUtilsPushFragment
+ * @property fragment Fragment
+ * @property frameId Int
+ * @property fragmentManager FragmentManager?
+ * @property fragmentBuilder FragmentBuilder
+ * @constructor
+ */
 @Suppress("unused")
 class NavUtilsPushFragment(
         private val fragment: Fragment,

@@ -2,17 +2,14 @@ package com.raphaelbussa.navutils.chrome
 
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageInstaller.EXTRA_SESSION
 import android.graphics.Bitmap
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import androidx.annotation.AnimRes
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
-import androidx.core.app.BundleCompat
 import androidx.core.content.ContextCompat
 import com.raphaelbussa.navutils.NavUtils
 import com.raphaelbussa.navutils.NavUtilsMarker
@@ -21,18 +18,30 @@ import com.raphaelbussa.navutils.isChromeInstalled
 
 internal const val NO_TITLE = 0
 internal const val SHOW_PAGE_TITLE = 1
+internal const val EXTRA_SESSION = "android.support.customtabs.extra.SESSION"
 internal const val EXTRA_CLOSE_BUTTON_ICON = "android.support.customtabs.extra.CLOSE_BUTTON_ICON"
 internal const val EXTRA_TOOLBAR_COLOR = "android.support.customtabs.extra.TOOLBAR_COLOR"
 internal const val EXTRA_TITLE_VISIBILITY_STATE = "android.support.customtabs.extra.TITLE_VISIBILITY"
 internal const val EXTRA_EXIT_ANIMATION_BUNDLE = "android.support.customtabs.extra.EXIT_ANIMATION_BUNDLE"
 internal const val EXTRA_DEFAULT_SHARE_MENU_ITEM = "android.support.customtabs.extra.SHARE_MENU_ITEM"
 
+/**
+ * ChromeBuilder
+ * @property context Context
+ * @property animationType Anim
+ * @property color Int
+ * @property icon Bitmap?
+ * @property showTitle Boolean
+ * @property bundleStartAnimations Bundle
+ * @property bundleExitAnimations Bundle
+ * @property showDefaultShareMenuItem Boolean
+ * @constructor
+ */
 @Suppress("unused")
 @NavUtilsMarker
 class ChromeBuilder(internal val context: Context) {
 
-    internal var animationType: NavUtils.Anim = NavUtils.Anim.SYSTEM
-        private set
+    private var animationType: NavUtils.Anim = NavUtils.Anim.SYSTEM
     @ColorInt
     internal var color: Int = 0
         private set
@@ -152,6 +161,11 @@ class ChromeBuilder(internal val context: Context) {
 
 }
 
+/**
+ * NavUtilsPushChromeActivity
+ * @property chromeBuilder ChromeBuilder
+ * @constructor
+ */
 @Suppress("MemberVisibilityCanBePrivate")
 class NavUtilsPushChromeActivity(
         private val chromeBuilder: ChromeBuilder
@@ -172,18 +186,15 @@ class NavUtilsPushChromeActivity(
     fun load(uri: Uri) {
         val intent = Intent(Intent.ACTION_VIEW, uri)
         if (isChromeInstalled(chromeBuilder.context)) {
-            val bundle = Bundle()
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                BundleCompat.putBinder(bundle, EXTRA_SESSION, null)
-            }
             intent.setPackage("com.android.chrome")
+            val extras = Bundle()
+            extras.putBinder(EXTRA_SESSION, null)
             intent.putExtra(EXTRA_CLOSE_BUTTON_ICON, chromeBuilder.icon)
             intent.putExtra(EXTRA_TOOLBAR_COLOR, chromeBuilder.color)
-            intent.putExtra(EXTRA_EXIT_ANIMATION_BUNDLE, bundle)
             intent.putExtra(EXTRA_TITLE_VISIBILITY_STATE, if (chromeBuilder.showTitle) SHOW_PAGE_TITLE else NO_TITLE)
             intent.putExtra(EXTRA_EXIT_ANIMATION_BUNDLE, chromeBuilder.bundleExitAnimations)
             intent.putExtra(EXTRA_DEFAULT_SHARE_MENU_ITEM, chromeBuilder.showDefaultShareMenuItem)
-            intent.putExtras(bundle)
+            intent.putExtras(extras)
         }
         ActivityCompat.startActivity(chromeBuilder.context, intent, chromeBuilder.bundleStartAnimations)
     }

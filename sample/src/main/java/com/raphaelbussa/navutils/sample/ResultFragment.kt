@@ -22,6 +22,7 @@ class ResultFragment : BaseFragment(), View.OnClickListener {
                 pushFragment(ResultFragment::class, R.id.container) {
                     animationType(animationType)
                     arguments(arguments ?: Bundle.EMPTY)
+                    addToBackStack()
                 }.replace()
             }
         }
