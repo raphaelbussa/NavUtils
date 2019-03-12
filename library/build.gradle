@@ -11,7 +11,6 @@ android {
         targetSdkVersion var.targetSdk
         versionCode 1
         versionName "${var.version}"
-
     }
 
     buildTypes {
@@ -36,10 +35,10 @@ dependencies {
 }
 
 version = "4.0.0.alpha1"
-group = 'rebus'
+group = 'com.raphaelbussa'
 publish {
     userOrg = 'raphaelbussa'
-    artifactId = 'nav-utils'
+    artifactId = 'navutils'
     desc = 'Easy manage commit Fragment and Activity, with some little extra'
     website = 'https://raphaelbussa.github.io/NavUtils/'
 }

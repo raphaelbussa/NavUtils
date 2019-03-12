@@ -7,7 +7,7 @@ android {
     compileSdkVersion var.compileSdk
 
     defaultConfig {
-        applicationId "rebus.navutils.sample"
+        applicationId "com.raphaelbussa.navutils.sample"
         minSdkVersion var.minSdk
         targetSdkVersion var.targetSdk
         versionCode 1
