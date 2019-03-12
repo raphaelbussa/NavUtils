@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: "guru.stefma.bintrayrelease"
+apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'org.jetbrains.dokka-android'
 
 android {
 
@@ -27,6 +28,11 @@ android {
         abortOnError false
     }
 
+    dokka {
+        outputFormat = 'kotlin-website'
+        outputDirectory = "../docs"
+    }
+
 }
 
 dependencies {
@@ -34,11 +40,11 @@ dependencies {
     api 'androidx.appcompat:appcompat:1.0.2'
 }
 
-version = "4.0.0.alpha1"
-group = 'com.raphaelbussa'
 publish {
     userOrg = 'raphaelbussa'
+    groupId = 'com.raphaelbussa'
     artifactId = 'navutils'
+    publishVersion = '4.0.0.alpha1'
     desc = 'Easy manage commit Fragment and Activity, with some little extra'
     website = 'https://raphaelbussa.github.io/NavUtils/'
 }

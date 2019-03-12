@@ -14,9 +14,9 @@ import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.app.BundleCompat
 import androidx.core.content.ContextCompat
-import com.R
 import com.raphaelbussa.navutils.NavUtils
 import com.raphaelbussa.navutils.NavUtilsMarker
+import com.raphaelbussa.navutils.R
 import com.raphaelbussa.navutils.isChromeInstalled
 
 internal const val NO_TITLE = 0
@@ -27,6 +27,7 @@ internal const val EXTRA_TITLE_VISIBILITY_STATE = "android.support.customtabs.ex
 internal const val EXTRA_EXIT_ANIMATION_BUNDLE = "android.support.customtabs.extra.EXIT_ANIMATION_BUNDLE"
 internal const val EXTRA_DEFAULT_SHARE_MENU_ITEM = "android.support.customtabs.extra.SHARE_MENU_ITEM"
 
+@Suppress("unused")
 @NavUtilsMarker
 class ChromeBuilder(internal val context: Context) {
 
@@ -46,36 +47,70 @@ class ChromeBuilder(internal val context: Context) {
     internal var showDefaultShareMenuItem: Boolean = false
         private set
 
+    /**
+     * toolbarColorRes
+     * @param color Int
+     */
     fun toolbarColorRes(@ColorRes color: Int) {
         this.color = ContextCompat.getColor(context, color)
     }
 
+    /**
+     * toolbarColor
+     * @param color Int
+     */
     fun toolbarColor(@ColorInt color: Int) {
         this.color = color
     }
 
+    /**
+     * showTitle
+     * @param showTitle Boolean
+     */
     fun showTitle(showTitle: Boolean) {
         this.showTitle = showTitle
     }
 
+    /**
+     * closeButtonIcon
+     * @param icon Bitmap
+     */
     fun closeButtonIcon(icon: Bitmap) {
         this.icon = icon
     }
 
+    /**
+     * startAnimations
+     * @param enterResId Int
+     * @param exitResId Int
+     */
     fun startAnimations(@AnimRes enterResId: Int, @AnimRes exitResId: Int) {
         bundleStartAnimations = ActivityOptionsCompat.makeCustomAnimation(context, enterResId, exitResId).toBundle()
                 ?: Bundle.EMPTY
     }
 
+    /**
+     * exitAnimations
+     * @param enterResId Int
+     * @param exitResId Int
+     */
     fun exitAnimations(@AnimRes enterResId: Int, @AnimRes exitResId: Int) {
         bundleExitAnimations = ActivityOptionsCompat.makeCustomAnimation(context, enterResId, exitResId).toBundle()
                 ?: Bundle.EMPTY
     }
 
+    /**
+     * showDefaultShareMenuItem
+     * @param showDefaultShareMenuItem Boolean
+     */
     fun showDefaultShareMenuItem(showDefaultShareMenuItem: Boolean) {
         this.showDefaultShareMenuItem = showDefaultShareMenuItem
     }
 
+    /**
+     * animationType
+     * @param animationType NavUtils.Anim
+     */
     fun animationType(animationType: NavUtils.Anim) {
         when (animationType) {
             NavUtils.Anim.HORIZONTAL_RIGHT -> {
@@ -117,14 +152,23 @@ class ChromeBuilder(internal val context: Context) {
 
 }
 
+@Suppress("MemberVisibilityCanBePrivate")
 class NavUtilsPushChromeActivity(
         private val chromeBuilder: ChromeBuilder
 ) {
 
+    /**
+     * load
+     * @param url String
+     */
     fun load(url: String) {
         load(Uri.parse(url))
     }
 
+    /**
+     * load
+     * @param uri Uri
+     */
     fun load(uri: Uri) {
         val intent = Intent(Intent.ACTION_VIEW, uri)
         if (isChromeInstalled(chromeBuilder.context)) {

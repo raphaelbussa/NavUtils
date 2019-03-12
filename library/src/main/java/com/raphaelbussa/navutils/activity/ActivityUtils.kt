@@ -9,11 +9,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import androidx.fragment.app.Fragment
-import com.R
-import com.raphaelbussa.navutils.NAV_ANIM
-import com.raphaelbussa.navutils.NavUtils
-import com.raphaelbussa.navutils.NavUtilsMarker
-import com.raphaelbussa.navutils.isLollipop
+import com.raphaelbussa.navutils.*
 import kotlin.reflect.KClass
 
 @NavUtilsMarker
@@ -34,36 +30,66 @@ class ActivityBuilder {
     internal var sceneTransition: Pair<View?, String>? = null
         private set
 
+    /**
+     * animationType
+     * @param animationType NavUtils.Anim
+     */
     fun animationType(animationType: NavUtils.Anim) {
         this.animationType = animationType
     }
 
+    /**
+     * clearStack
+     * @param clearStack Boolean
+     */
     fun clearStack(clearStack: Boolean) {
         this.clearStack = clearStack
     }
 
+    /**
+     * arguments
+     * @param arguments Bundle
+     */
     fun arguments(arguments: Bundle) {
         this.arguments = arguments
     }
 
+    /**
+     * customAnimation
+     * @param enterResId Int
+     * @param exitResId Int
+     */
     fun customAnimation(@AnimRes enterResId: Int, @AnimRes exitResId: Int) {
         this.customAnimation = true
         this.enterResId = enterResId
         this.exitResId = exitResId
     }
 
+    /**
+     * sceneTransition
+     * @param sceneTransition Pair<View?, String>
+     */
     fun sceneTransition(sceneTransition: Pair<View?, String>) {
         if (isLollipop()) {
             this.sceneTransition = sceneTransition
         }
     }
 
+    /**
+     * sceneTransition
+     * @param sharedElement View?
+     * @param sharedElementName String
+     */
     fun sceneTransition(sharedElement: View?, sharedElementName: String) {
         if (isLollipop()) {
             this.sceneTransition = Pair(sharedElement, sharedElementName)
         }
     }
 
+    /**
+     * sceneTransition
+     * @param sharedElement View?
+     */
     fun sceneTransition(sharedElement: View?) {
         if (isLollipop()) {
             this.sceneTransition = Pair(sharedElement, sharedElement?.transitionName)
@@ -79,6 +105,10 @@ class NavUtilsPushActivity(
         private val activity: ActivityBuilder
 ) {
 
+    /**
+     * commit
+     * @param requestCode Int
+     */
     fun commit(requestCode: Int = -1) {
         if (fragment != null) {
             commitNewActivity(
@@ -95,7 +125,13 @@ class NavUtilsPushActivity(
         }
     }
 
-    @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
+    /**
+     * commitNewActivity
+     * @param context Context?
+     * @param fragment Fragment?
+     * @param intent Intent
+     * @param requestCode Int
+     */
     private fun commitNewActivity(context: Context?, fragment: Fragment? = null, intent: Intent, requestCode: Int) {
         if (context == null) return
         if (activity.clearStack) {
@@ -115,7 +151,7 @@ class NavUtilsPushActivity(
             }
         }
 
-        if (activity.arguments != null) intent.putExtras(activity.arguments)
+        if (activity.arguments != null) intent.putExtras(activity.arguments ?: Bundle.EMPTY)
         intent.putExtra(NAV_ANIM, activity.animationType.anim)
 
         if (isLollipop()) {

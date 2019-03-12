@@ -4,10 +4,11 @@ import android.os.Bundle
 import androidx.annotation.AnimRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import com.R
 import com.raphaelbussa.navutils.NavUtils
 import com.raphaelbussa.navutils.NavUtilsMarker
+import com.raphaelbussa.navutils.R
 
+@Suppress("unused")
 @NavUtilsMarker
 class FragmentBuilder {
 
@@ -34,10 +35,21 @@ class FragmentBuilder {
     internal var popExitResId: Int = 0
         private set
 
+    /**
+     * animationType
+     * @param animationType NavUtils.Anim
+     */
     fun animationType(animationType: NavUtils.Anim) {
         this.animationType = animationType
     }
 
+    /**
+     * customAnimation
+     * @param enterResId Int
+     * @param exitResId Int
+     * @param popEnterResId Int
+     * @param popExitResId Int
+     */
     fun customAnimation(@AnimRes enterResId: Int, @AnimRes exitResId: Int, @AnimRes popEnterResId: Int, @AnimRes popExitResId: Int) {
         this.customAnimation = true
         this.enterResId = enterResId
@@ -46,28 +58,48 @@ class FragmentBuilder {
         this.popExitResId = popExitResId
     }
 
+    /**
+     * noEnterAnimations
+     * @param noEnterAnimations Boolean
+     */
     fun noEnterAnimations(noEnterAnimations: Boolean) {
         this.noEnterAnimations = noEnterAnimations
     }
 
+    /**
+     * noExitAnimations
+     * @param noExitAnimations Boolean
+     */
     fun noExitAnimations(noExitAnimations: Boolean) {
         this.noExitAnimations = noExitAnimations
     }
 
+    /**
+     * addToBackStack
+     */
     fun addToBackStack() {
         this.addToBackStack = true
     }
 
+    /**
+     * tag
+     * @param tag String
+     */
     fun tag(tag: String) {
         this.tag = tag
     }
 
+    /**
+     * arguments
+     * @param bundle Bundle
+     */
     fun arguments(bundle: Bundle) {
         this.bundle = bundle
     }
 
 }
 
+@Suppress("unused")
 class NavUtilsPushFragment(
         private val fragment: Fragment,
         private val frameId: Int,
@@ -75,14 +107,24 @@ class NavUtilsPushFragment(
         private val fragmentBuilder: FragmentBuilder
 ) {
 
+    /**
+     * add
+     */
     fun add() {
         commitNewFragment(false)
     }
 
+    /**
+     * replace
+     */
     fun replace() {
         commitNewFragment(true)
     }
 
+    /**
+     * commitNewFragment
+     * @param replace Boolean
+     */
     private fun commitNewFragment(replace: Boolean) {
         if (fragmentBuilder.bundle != null) fragment.arguments = fragmentBuilder.bundle
         val transaction = (fragmentManager ?: return).beginTransaction()

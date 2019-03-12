@@ -1,4 +1,3 @@
-<manifest package="com">
-
+<manifest package="com.raphaelbussa.navutils">
     <application />
 </manifest>
