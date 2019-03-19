@@ -28,6 +28,10 @@ android {
         abortOnError false
     }
 
+    compileOptions {
+        kotlinOptions.freeCompilerArgs += ['-module-name', "com.raphaelbussa.navutils"]
+    }
+
     dokka {
         outputFormat = 'html'
         outputDirectory = "../docs"
@@ -44,7 +48,7 @@ publish {
     userOrg = 'raphaelbussa'
     groupId = 'com.raphaelbussa'
     artifactId = 'navutils'
-    publishVersion = '4.0.0.alpha2'
+    publishVersion = '4.0.0.alpha3'
     desc = 'Easy manage commit Fragment and Activity, with some little extra'
     website = 'https://raphaelbussa.github.io/NavUtils/'
 }
