@@ -1,0 +1,284 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>BaseFragment - library</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">library</a>&nbsp;/&nbsp;<a href="../index.html">com.raphaelbussa.navutils.fragment</a>&nbsp;/&nbsp;<a href="./index.html">BaseFragment</a><br/>
+<br/>
+<h1>BaseFragment</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">BaseFragment</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Fragment</span></code>
+<p>BaseFragment</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">BaseFragment</span><span class="symbol">(</span><span class="symbol">)</span></code>
+<p>BaseFragment</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="root-view.html">rootView</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">rootView</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/view/View.html"><span class="identifier">View</span></a><span class="symbol">?</span></code>
+<p>View?</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="support-fragment-manager.html">supportFragmentManager</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">supportFragmentManager</span><span class="symbol">: </span><span class="identifier">FragmentManager</span><span class="symbol">?</span></code>
+<p>FragmentManager?</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="toolbar.html">toolbar</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">toolbar</span><span class="symbol">: </span><span class="identifier">Toolbar</span><span class="symbol">?</span></code>
+<p>Toolbar?</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="toolbar-shadow.html">toolbarShadow</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">toolbarShadow</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/view/View.html"><span class="identifier">View</span></a><span class="symbol">?</span></code>
+<p>View?</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="find-view-by-id.html">findViewById</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/view/View.html"><span class="identifier">View</span></a><span class="symbol">&gt;</span> <span class="identifier">findViewById</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils.fragment.BaseFragment$findViewById(kotlin.Int)/id">id</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="find-view-by-id.html#T"><span class="identifier">T</span></a><span class="symbol">?</span></code>
+<p>findViewById</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="on-create-view.html">onCreateView</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onCreateView</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils.fragment.BaseFragment$onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)/inflater">inflater</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/view/LayoutInflater.html"><span class="identifier">LayoutInflater</span></a><span class="symbol">, </span><span class="identifier" id="com.raphaelbussa.navutils.fragment.BaseFragment$onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)/container">container</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/view/ViewGroup.html"><span class="identifier">ViewGroup</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="com.raphaelbussa.navutils.fragment.BaseFragment$onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)/savedInstanceState">savedInstanceState</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/os/Bundle.html"><span class="identifier">Bundle</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/view/View.html"><span class="identifier">View</span></a><span class="symbol">?</span></code>
+<p>onCreateView</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="on-support-back-pressed.html">onSupportBackPressed</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onSupportBackPressed</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils.fragment.BaseFragment$onSupportBackPressed(android.os.Bundle)/bundle">bundle</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/os/Bundle.html"><span class="identifier">Bundle</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>onSupportBackPressed</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="remove-subtitle.html">removeSubtitle</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">removeSubtitle</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>removeSubtitle</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="remove-title.html">removeTitle</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">removeTitle</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>removeTitle</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-icon.html">setIcon</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setIcon</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils.fragment.BaseFragment$setIcon(kotlin.Int)/icon">icon</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">setIcon</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils.fragment.BaseFragment$setIcon(android.graphics.drawable.Drawable)/icon">icon</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/graphics/drawable/Drawable.html"><span class="identifier">Drawable</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>setIcon</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-layout-resource.html">setLayoutResource</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">setLayoutResource</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>setLayoutResource</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-navigation-icon.html">setNavigationIcon</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setNavigationIcon</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils.fragment.BaseFragment$setNavigationIcon(kotlin.Int)/icon">icon</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">setNavigationIcon</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils.fragment.BaseFragment$setNavigationIcon(android.graphics.drawable.Drawable)/icon">icon</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/graphics/drawable/Drawable.html"><span class="identifier">Drawable</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>setNavigationIcon</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-navigation-on-click-listener.html">setNavigationOnClickListener</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setNavigationOnClickListener</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils.fragment.BaseFragment$setNavigationOnClickListener(android.view.View.OnClickListener)/onClickListener">onClickListener</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/view/View/OnClickListener.html"><span class="identifier">OnClickListener</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>setNavigationOnClickListener</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-status-bar-color.html">setStatusBarColor</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setStatusBarColor</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils.fragment.BaseFragment$setStatusBarColor(kotlin.Int)/color">color</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>setStatusBarColor</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-status-bar-color-res.html">setStatusBarColorRes</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setStatusBarColorRes</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils.fragment.BaseFragment$setStatusBarColorRes(kotlin.Int)/color">color</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>setStatusBarColorRes</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-subtitle.html">setSubtitle</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setSubtitle</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils.fragment.BaseFragment$setSubtitle(kotlin.Int)/subtitle">subtitle</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">setSubtitle</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils.fragment.BaseFragment$setSubtitle(kotlin.String)/subtitle">subtitle</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>setSubtitle</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-subtitle-color.html">setSubtitleColor</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setSubtitleColor</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils.fragment.BaseFragment$setSubtitleColor(kotlin.Int)/color">color</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>setSubtitleColor</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-subtitle-color-res.html">setSubtitleColorRes</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setSubtitleColorRes</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils.fragment.BaseFragment$setSubtitleColorRes(kotlin.Int)/color">color</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>setSubtitleColorRes</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-subtitle-post.html">setSubtitlePost</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setSubtitlePost</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils.fragment.BaseFragment$setSubtitlePost(kotlin.String)/subtitle">subtitle</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">setSubtitlePost</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils.fragment.BaseFragment$setSubtitlePost(kotlin.Int)/subtitle">subtitle</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>setSubtitlePost</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-title.html">setTitle</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setTitle</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils.fragment.BaseFragment$setTitle(kotlin.Int)/title">title</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">setTitle</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils.fragment.BaseFragment$setTitle(kotlin.String)/title">title</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>setTitle</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-title-color.html">setTitleColor</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setTitleColor</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils.fragment.BaseFragment$setTitleColor(kotlin.Int)/color">color</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>setTitleColor</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-title-color-res.html">setTitleColorRes</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setTitleColorRes</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils.fragment.BaseFragment$setTitleColorRes(kotlin.Int)/color">color</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>setTitleColorRes</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-title-post.html">setTitlePost</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setTitlePost</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils.fragment.BaseFragment$setTitlePost(kotlin.String)/title">title</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">setTitlePost</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils.fragment.BaseFragment$setTitlePost(kotlin.Int)/title">title</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>setTitlePost</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../../com.raphaelbussa.navutils/androidx.fragment.app.-fragment/push-activity.html">pushActivity</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Fragment</span><span class="symbol">.</span><span class="identifier">pushActivity</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils$pushActivity(androidx.fragment.app.Fragment, kotlin.reflect.KClass((kotlin.Any)), kotlin.Function1((com.raphaelbussa.navutils.activity.ActivityBuilder, kotlin.Unit)))/target">target</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html"><span class="identifier">KClass</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.raphaelbussa.navutils$pushActivity(androidx.fragment.app.Fragment, kotlin.reflect.KClass((kotlin.Any)), kotlin.Function1((com.raphaelbussa.navutils.activity.ActivityBuilder, kotlin.Unit)))/builder">builder</span><span class="symbol">:</span>&nbsp;<a href="../../com.raphaelbussa.navutils.activity/-activity-builder/index.html"><span class="identifier">ActivityBuilder</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a>&nbsp;<span class="symbol">=</span>&nbsp;{}<span class="symbol">)</span><span class="symbol">: </span><a href="../../com.raphaelbussa.navutils.activity/-nav-utils-push-activity/index.html"><span class="identifier">NavUtilsPushActivity</span></a></code>
+<p>pushActivity</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.raphaelbussa.navutils/androidx.fragment.app.-fragment/push-chrome-custom-tab.html">pushChromeCustomTab</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Fragment</span><span class="symbol">.</span><span class="identifier">pushChromeCustomTab</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils$pushChromeCustomTab(androidx.fragment.app.Fragment, kotlin.Function1((com.raphaelbussa.navutils.chrome.ChromeBuilder, kotlin.Unit)))/builder">builder</span><span class="symbol">:</span>&nbsp;<a href="../../com.raphaelbussa.navutils.chrome/-chrome-builder/index.html"><span class="identifier">ChromeBuilder</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a>&nbsp;<span class="symbol">=</span>&nbsp;{}<span class="symbol">)</span><span class="symbol">: </span><a href="../../com.raphaelbussa.navutils.chrome/-nav-utils-push-chrome-activity/index.html"><span class="identifier">NavUtilsPushChromeActivity</span></a></code>
+<p>pushChromeCustomTab</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.raphaelbussa.navutils/androidx.fragment.app.-fragment/push-fragment.html">pushFragment</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Fragment</span><span class="symbol">.</span><span class="identifier">pushFragment</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils$pushFragment(androidx.fragment.app.Fragment, androidx.fragment.app.Fragment, kotlin.Int, kotlin.Function1((com.raphaelbussa.navutils.fragment.FragmentBuilder, kotlin.Unit)))/target">target</span><span class="symbol">:</span>&nbsp;<span class="identifier">Fragment</span><span class="symbol">, </span><span class="identifier" id="com.raphaelbussa.navutils$pushFragment(androidx.fragment.app.Fragment, androidx.fragment.app.Fragment, kotlin.Int, kotlin.Function1((com.raphaelbussa.navutils.fragment.FragmentBuilder, kotlin.Unit)))/frameId">frameId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="com.raphaelbussa.navutils$pushFragment(androidx.fragment.app.Fragment, androidx.fragment.app.Fragment, kotlin.Int, kotlin.Function1((com.raphaelbussa.navutils.fragment.FragmentBuilder, kotlin.Unit)))/builder">builder</span><span class="symbol">:</span>&nbsp;<a href="../-fragment-builder/index.html"><span class="identifier">FragmentBuilder</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a>&nbsp;<span class="symbol">=</span>&nbsp;{}<span class="symbol">)</span><span class="symbol">: </span><a href="../-nav-utils-push-fragment/index.html"><span class="identifier">NavUtilsPushFragment</span></a></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">Fragment</span><span class="symbol">.</span><span class="identifier">pushFragment</span><span class="symbol">(</span><span class="identifier" id="com.raphaelbussa.navutils$pushFragment(androidx.fragment.app.Fragment, kotlin.reflect.KClass((kotlin.Any)), kotlin.Int, kotlin.Function1((com.raphaelbussa.navutils.fragment.FragmentBuilder, kotlin.Unit)))/target">target</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html"><span class="identifier">KClass</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.raphaelbussa.navutils$pushFragment(androidx.fragment.app.Fragment, kotlin.reflect.KClass((kotlin.Any)), kotlin.Int, kotlin.Function1((com.raphaelbussa.navutils.fragment.FragmentBuilder, kotlin.Unit)))/frameId">frameId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="com.raphaelbussa.navutils$pushFragment(androidx.fragment.app.Fragment, kotlin.reflect.KClass((kotlin.Any)), kotlin.Int, kotlin.Function1((com.raphaelbussa.navutils.fragment.FragmentBuilder, kotlin.Unit)))/builder">builder</span><span class="symbol">:</span>&nbsp;<a href="../-fragment-builder/index.html"><span class="identifier">FragmentBuilder</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a>&nbsp;<span class="symbol">=</span>&nbsp;{}<span class="symbol">)</span><span class="symbol">: </span><a href="../-nav-utils-push-fragment/index.html"><span class="identifier">NavUtilsPushFragment</span></a></code>
+<p>pushFragment</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
