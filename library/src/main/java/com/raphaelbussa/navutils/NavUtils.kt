@@ -93,6 +93,20 @@ class NavUtils {
         /**
          * pushFragment
          * @param activity FragmentActivity
+         * @param target Fragment
+         * @param frameId Int
+         * @param builder FragmentBuilder.() -> Unit
+         * @return NavUtilsPushFragment
+         */
+        fun pushFragment(activity: FragmentActivity, target: Fragment, frameId: Int, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
+            val innerFragment = FragmentBuilder()
+            builder(innerFragment)
+            return NavUtilsPushFragment(target, frameId, activity.supportFragmentManager, innerFragment)
+        }
+
+        /**
+         * pushFragment
+         * @param activity FragmentActivity
          * @param target KClass<*>
          * @param frameId Int
          * @param builder FragmentBuilder.() -> Unit
@@ -102,6 +116,20 @@ class NavUtils {
             val innerFragment = FragmentBuilder()
             builder(innerFragment)
             return NavUtilsPushFragment(Fragment.instantiate(activity, target.java.name), frameId, activity.supportFragmentManager, innerFragment)
+        }
+
+        /**
+         * pushFragment
+         * @param fragment Fragment
+         * @param target Fragment
+         * @param frameId Int
+         * @param builder FragmentBuilder.() -> Unit
+         * @return NavUtilsPushFragment
+         */
+        fun pushFragment(fragment: Fragment, target: Fragment, frameId: Int, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
+            val innerFragment = FragmentBuilder()
+            builder(innerFragment)
+            return NavUtilsPushFragment(target, frameId, fragment.fragmentManager, innerFragment)
         }
 
         /**
@@ -180,6 +208,19 @@ fun Fragment.pushActivity(target: KClass<*>, builder: ActivityBuilder.() -> Unit
     return NavUtils.pushActivity(this, target, builder)
 }
 
+
+/**
+ * pushFragment
+ * @receiver FragmentActivity
+ * @param target Fragment
+ * @param frameId Int
+ * @param builder FragmentBuilder.() -> Unit
+ * @return NavUtilsPushFragment
+ */
+fun FragmentActivity.pushFragment(target: Fragment, frameId: Int, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
+    return NavUtils.pushFragment(this, target, frameId, builder)
+}
+
 /**
  * pushFragment
  * @receiver FragmentActivity
@@ -189,6 +230,18 @@ fun Fragment.pushActivity(target: KClass<*>, builder: ActivityBuilder.() -> Unit
  * @return NavUtilsPushFragment
  */
 fun FragmentActivity.pushFragment(target: KClass<*>, frameId: Int, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
+    return NavUtils.pushFragment(this, target, frameId, builder)
+}
+
+/**
+ * pushFragment
+ * @receiver Fragment
+ * @param target Fragment
+ * @param frameId Int
+ * @param builder FragmentBuilder.() -> Unit
+ * @return NavUtilsPushFragment
+ */
+fun Fragment.pushFragment(target: Fragment, frameId: Int, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
     return NavUtils.pushFragment(this, target, frameId, builder)
 }
 
