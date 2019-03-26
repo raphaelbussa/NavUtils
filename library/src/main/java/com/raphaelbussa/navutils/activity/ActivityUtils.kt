@@ -22,7 +22,7 @@ import kotlin.reflect.KClass
  * @property exitResId Int
  * @property sceneTransition Pair<View?, String>?
  */
-@Suppress("unused")
+@Suppress("unused", "MemberVisibilityCanBePrivate")
 @NavUtilsMarker
 class ActivityBuilder {
 
@@ -39,6 +39,8 @@ class ActivityBuilder {
     internal var exitResId: Int = 0
         private set
     internal var sceneTransition: Pair<View?, String>? = null
+        private set
+    internal var clipRevealTransition: View? = null
         private set
 
     /**
@@ -81,9 +83,8 @@ class ActivityBuilder {
      * @param sceneTransition Pair<View?, String>
      */
     fun sceneTransition(sceneTransition: Pair<View?, String>) {
-        if (isLollipop()) {
-            this.sceneTransition = sceneTransition
-        }
+        this.clipRevealTransition = null
+        this.sceneTransition = sceneTransition
     }
 
     /**
@@ -92,9 +93,8 @@ class ActivityBuilder {
      * @param sharedElementName String
      */
     fun sceneTransition(sharedElement: View?, sharedElementName: String) {
-        if (isLollipop()) {
-            this.sceneTransition = Pair(sharedElement, sharedElementName)
-        }
+        this.clipRevealTransition = null
+        this.sceneTransition = Pair(sharedElement, sharedElementName)
     }
 
     /**
@@ -102,9 +102,17 @@ class ActivityBuilder {
      * @param sharedElement View?
      */
     fun sceneTransition(sharedElement: View?) {
-        if (isLollipop()) {
-            this.sceneTransition = Pair(sharedElement, sharedElement?.transitionName)
-        }
+        this.clipRevealTransition = null
+        this.sceneTransition = Pair(sharedElement, sharedElement?.transitionName)
+    }
+
+    /**
+     * clipRevealTransition
+     * @param view View?
+     */
+    fun clipRevealTransition(view: View?) {
+        this.clipRevealTransition = view
+        this.sceneTransition = null
     }
 
 }
@@ -171,16 +179,24 @@ class NavUtilsPushActivity(
         }
 
         if (activity.arguments != null) intent.putExtras(activity.arguments ?: Bundle.EMPTY)
-        intent.putExtra(NAV_ANIM, activity.animationType.anim)
 
-        if (isLollipop()) {
-            if (activity.sceneTransition != null) {
-                options = when {
-                    fragment != null -> ActivityOptionsCompat.makeSceneTransitionAnimation(fragment.activity!!, activity.sceneTransition).toBundle()
-                    context is android.app.Activity -> ActivityOptionsCompat.makeSceneTransitionAnimation(context, activity.sceneTransition).toBundle()
-                    else -> throw RuntimeException("sceneTransition can called only from an activity or activity context")
-                }
+        if (activity.sceneTransition != null) {
+            options = when {
+                fragment != null -> ActivityOptionsCompat.makeSceneTransitionAnimation(fragment.activity!!, activity.sceneTransition).toBundle()
+                context is android.app.Activity -> ActivityOptionsCompat.makeSceneTransitionAnimation(context, activity.sceneTransition).toBundle()
+                else -> throw RuntimeException("sceneTransition can called only from an activity or activity context")
             }
+        }
+        if (activity.clipRevealTransition != null) {
+            options = when {
+                fragment != null -> ActivityOptionsCompat.makeClipRevealAnimation(activity.clipRevealTransition!!, 0, 0, activity.clipRevealTransition!!.width, activity.clipRevealTransition!!.height).toBundle()
+                context is android.app.Activity -> ActivityOptionsCompat.makeClipRevealAnimation(activity.clipRevealTransition!!, 0, 0, activity.clipRevealTransition!!.width, activity.clipRevealTransition!!.height).toBundle()
+                else -> throw RuntimeException("clipRevealTransition can called only from an activity or activity context")
+            }
+        }
+
+        if (activity.sceneTransition == null && activity.clipRevealTransition == null) {
+            intent.putExtra(NAV_ANIM, activity.animationType.anim)
         }
 
         if (requestCode == -1) {

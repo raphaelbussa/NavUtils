@@ -3,7 +3,6 @@ package com.raphaelbussa.navutils
 import android.content.Context
 import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
-import android.os.Build
 import androidx.annotation.IntDef
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -15,7 +14,7 @@ import com.raphaelbussa.navutils.fragment.FragmentBuilder
 import com.raphaelbussa.navutils.fragment.NavUtilsPushFragment
 import kotlin.reflect.KClass
 
-const val NAV_ANIM = "rebus.navutils.NavUtils.NAV_ANIM"
+const val NAV_ANIM = "com.raphaelbussa.navutils.NavUtils.NAV_ANIM"
 const val NULL = -100
 
 @DslMarker
@@ -275,14 +274,6 @@ fun FragmentActivity.pushChromeCustomTab(builder: ChromeBuilder.() -> Unit = {})
  */
 fun Fragment.pushChromeCustomTab(builder: ChromeBuilder.() -> Unit = {}): NavUtilsPushChromeActivity {
     return NavUtils.pushChromeCustomTab(this, builder)
-}
-
-/**
- * isLollipop
- * @return Boolean
- */
-internal fun isLollipop(): Boolean {
-    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
 }
 
 /**

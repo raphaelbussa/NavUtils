@@ -1,7 +1,7 @@
 # Nav Utils
 [![Download](https://api.bintray.com/packages/raphaelbussa/maven/navutils/images/download.svg) ](https://bintray.com/raphaelbussa/maven/navutils/_latestVersion)
 
-![Logo](https://raw.githubusercontent.com/rebus007/NavUtils/master/sample/src/main/ic_launcher-web.png)
+![Logo](https://raw.githubusercontent.com/raphaelbussa/NavUtils/master/sample/src/main/ic_launcher-web.png)
 
 Easy manage commit Fragment and Activity, with some little extra
 
@@ -18,7 +18,7 @@ repositories {
 
 ```Gradle
 dependencies {
-    implementation 'com.raphaelbussa:navutils:4.0.0.alpha4'
+    implementation 'com.raphaelbussa:navutils:4.0.0.alpha5'
 }
 ```
 ### How to use

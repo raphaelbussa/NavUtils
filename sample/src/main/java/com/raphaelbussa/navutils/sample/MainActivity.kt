@@ -3,6 +3,8 @@ package com.raphaelbussa.navutils.sample
 import android.content.pm.ActivityInfo
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import androidx.core.content.ContextCompat
 import com.raphaelbussa.navutils.NavUtils
@@ -29,6 +31,19 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         system.setOnClickListener(this)
         chrome.setOnClickListener(this)
         sceneTransition.setOnClickListener(this)
+        fab.setOnClickListener(this)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        pushActivity(SceneTransitionActivity::class) {
+            clipRevealTransition(item?.actionView)
+        }.commit()
+        return super.onOptionsItemSelected(item)
     }
 
     override fun setLayoutResource() = R.layout.activity_main
@@ -81,6 +96,11 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             R.id.sceneTransition -> {
                 pushActivity(SceneTransitionActivity::class) {
                     animationType(NavUtils.Anim.SYSTEM)
+                }.commit()
+            }
+            R.id.fab -> {
+                pushActivity(SceneTransitionActivity::class) {
+                    clipRevealTransition(v)
                 }.commit()
             }
         }
