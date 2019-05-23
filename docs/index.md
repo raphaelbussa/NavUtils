@@ -1,7 +1,7 @@
 # Nav Utils
 [![Download](https://api.bintray.com/packages/raphaelbussa/maven/navutils/images/download.svg) ](https://bintray.com/raphaelbussa/maven/navutils/_latestVersion)
 
-![Logo](https://raw.githubusercontent.com/raphaelbussa/NavUtils/master/sample/src/main/ic_launcher-web.png)
+![Logo](https://raw.githubusercontent.com/raphaelbussa/NavUtils/master/img/carbon.png)
 
 Easy manage commit Fragment and Activity, with some little extra
 
