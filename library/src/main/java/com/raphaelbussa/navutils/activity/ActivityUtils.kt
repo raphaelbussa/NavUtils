@@ -9,7 +9,10 @@ import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import androidx.fragment.app.Fragment
-import com.raphaelbussa.navutils.*
+import com.raphaelbussa.navutils.NAV_ANIM
+import com.raphaelbussa.navutils.NavUtils
+import com.raphaelbussa.navutils.NavUtilsMarker
+import com.raphaelbussa.navutils.R
 import kotlin.reflect.KClass
 
 /**

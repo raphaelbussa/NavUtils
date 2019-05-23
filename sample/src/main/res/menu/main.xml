@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:icon="@drawable/ic_back"
         android:id="@+id/open"
+        android:icon="@drawable/ic_back"
         android:title="Open"
         app:showAsAction="always" />
 

@@ -99,8 +99,9 @@ class NavUtils {
          */
         fun pushFragment(activity: FragmentActivity, target: Fragment, frameId: Int, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
             val innerFragment = FragmentBuilder()
+            innerFragment.fragmentManager(activity.supportFragmentManager)
             builder(innerFragment)
-            return NavUtilsPushFragment(target, frameId, activity.supportFragmentManager, innerFragment)
+            return NavUtilsPushFragment(target, frameId, innerFragment)
         }
 
         /**
@@ -113,8 +114,9 @@ class NavUtils {
          */
         fun pushFragment(activity: FragmentActivity, target: KClass<*>, frameId: Int, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
             val innerFragment = FragmentBuilder()
+            innerFragment.fragmentManager(activity.supportFragmentManager)
             builder(innerFragment)
-            return NavUtilsPushFragment(Fragment.instantiate(activity, target.java.name), frameId, activity.supportFragmentManager, innerFragment)
+            return NavUtilsPushFragment(Fragment.instantiate(activity, target.java.name), frameId, innerFragment)
         }
 
         /**
@@ -127,8 +129,9 @@ class NavUtils {
          */
         fun pushFragment(fragment: Fragment, target: Fragment, frameId: Int, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
             val innerFragment = FragmentBuilder()
+            innerFragment.fragmentManager(fragment.fragmentManager)
             builder(innerFragment)
-            return NavUtilsPushFragment(target, frameId, fragment.fragmentManager, innerFragment)
+            return NavUtilsPushFragment(target, frameId, innerFragment)
         }
 
         /**
@@ -141,8 +144,9 @@ class NavUtils {
          */
         fun pushFragment(fragment: Fragment, target: KClass<*>, frameId: Int, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
             val innerFragment = FragmentBuilder()
+            innerFragment.fragmentManager(fragment.fragmentManager)
             builder(innerFragment)
-            return NavUtilsPushFragment(Fragment.instantiate(fragment.context, target.java.name), frameId, fragment.fragmentManager, innerFragment)
+            return NavUtilsPushFragment(Fragment.instantiate(fragment.context, target.java.name), frameId, innerFragment)
         }
 
         /**

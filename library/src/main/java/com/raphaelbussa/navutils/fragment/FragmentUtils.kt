@@ -10,6 +10,7 @@ import com.raphaelbussa.navutils.R
 
 /**
  * FragmentBuilder
+ * @property fragmentManager FragmentManager
  * @property animationType Anim
  * @property noEnterAnimations Boolean
  * @property noExitAnimations Boolean
@@ -26,6 +27,8 @@ import com.raphaelbussa.navutils.R
 @NavUtilsMarker
 class FragmentBuilder {
 
+    internal var fragmentManager: FragmentManager? = null
+        private set
     internal var animationType: NavUtils.Anim = NavUtils.Anim.SYSTEM
         private set
     internal var noEnterAnimations: Boolean = false
@@ -104,6 +107,14 @@ class FragmentBuilder {
     }
 
     /**
+     * fragmentManager
+     * @param fragmentManager FragmentManager?
+     */
+    fun fragmentManager(fragmentManager: FragmentManager?) {
+        this.fragmentManager = fragmentManager
+    }
+
+    /**
      * arguments
      * @param bundle Bundle
      */
@@ -125,7 +136,6 @@ class FragmentBuilder {
 class NavUtilsPushFragment(
         private val fragment: Fragment,
         private val frameId: Int,
-        private val fragmentManager: FragmentManager?,
         private val fragmentBuilder: FragmentBuilder
 ) {
 
@@ -149,7 +159,7 @@ class NavUtilsPushFragment(
      */
     private fun commitNewFragment(replace: Boolean) {
         if (fragmentBuilder.bundle != null) fragment.arguments = fragmentBuilder.bundle
-        val transaction = (fragmentManager ?: return).beginTransaction()
+        val transaction = (fragmentBuilder.fragmentManager ?: return).beginTransaction()
         if (fragmentBuilder.customAnimation) {
             transaction.setCustomAnimations(if (fragmentBuilder.noEnterAnimations) 0 else fragmentBuilder.enterResId, if (fragmentBuilder.noExitAnimations) 0 else fragmentBuilder.exitResId, if (fragmentBuilder.noEnterAnimations) 0 else fragmentBuilder.popEnterResId, if (fragmentBuilder.noExitAnimations) 0 else fragmentBuilder.popExitResId)
         } else {

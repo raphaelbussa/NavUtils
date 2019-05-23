@@ -11,6 +11,7 @@ class ResultFragment : BaseFragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setStatusBarColorRes(R.color.colorPrimary)
         newFragment.setOnClickListener(this)
     }
 
@@ -19,9 +20,10 @@ class ResultFragment : BaseFragment(), View.OnClickListener {
                 ?: NavUtils.Anim.SYSTEM
         when (v.id) {
             R.id.newFragment -> {
-                pushFragment(ResultFragment::class, R.id.container) {
+                pushFragment(TestFragment::class, R.id.innerContaiener) {
                     animationType(animationType)
                     arguments(arguments ?: Bundle.EMPTY)
+                    fragmentManager(childFragmentManager)
                     addToBackStack()
                 }.replace()
             }
