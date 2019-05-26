@@ -1,5 +1,6 @@
 # Nav Utils 
-[![Download](https://api.bintray.com/packages/raphaelbussa/maven/navutils/images/download.svg) ](https://bintray.com/raphaelbussa/maven/navutils/_latestVersion)
+[![Download](https://api.bintray.com/packages/raphaelbussa/maven/navutils/images/download.svg) ](https://bintray.com/raphaelbussa/maven/navutils/_latestVersion) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-NavUtils-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/7685)
+
 
 ![Logo](https://raw.githubusercontent.com/raphaelbussa/NavUtils/master/img/carbon.png)
 
