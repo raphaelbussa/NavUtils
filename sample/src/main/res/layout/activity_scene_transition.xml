@@ -8,6 +8,12 @@
     tools:ignore="HardcodedText,ContentDescription"
     tools:targetApi="lollipop">
 
+    <Button
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go to result" />
+
     <ImageView
         android:id="@+id/testImage"
         android:layout_width="320dp"
@@ -25,11 +31,5 @@
         android:text="@string/app_name"
         android:textSize="12sp"
         android:transitionName="testTitle" />
-
-    <Button
-        android:id="@+id/result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Go to result" />
 
 </LinearLayout>

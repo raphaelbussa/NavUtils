@@ -14,7 +14,6 @@ import androidx.core.content.ContextCompat
 import com.raphaelbussa.navutils.NavUtils
 import com.raphaelbussa.navutils.NavUtilsMarker
 import com.raphaelbussa.navutils.R
-import com.raphaelbussa.navutils.isChromeInstalled
 
 internal const val NO_TITLE = 0
 internal const val SHOW_PAGE_TITLE = 1
@@ -37,7 +36,7 @@ internal const val EXTRA_DEFAULT_SHARE_MENU_ITEM = "android.support.customtabs.e
  * @property showDefaultShareMenuItem Boolean
  * @constructor
  */
-@Suppress("unused")
+
 @NavUtilsMarker
 class ChromeBuilder(internal val context: Context) {
 
@@ -185,17 +184,14 @@ class NavUtilsPushChromeActivity(
      */
     fun load(uri: Uri) {
         val intent = Intent(Intent.ACTION_VIEW, uri)
-        if (isChromeInstalled(chromeBuilder.context)) {
-            intent.setPackage("com.android.chrome")
-            val extras = Bundle()
-            extras.putBinder(EXTRA_SESSION, null)
-            intent.putExtra(EXTRA_CLOSE_BUTTON_ICON, chromeBuilder.icon)
-            intent.putExtra(EXTRA_TOOLBAR_COLOR, chromeBuilder.color)
-            intent.putExtra(EXTRA_TITLE_VISIBILITY_STATE, if (chromeBuilder.showTitle) SHOW_PAGE_TITLE else NO_TITLE)
-            intent.putExtra(EXTRA_EXIT_ANIMATION_BUNDLE, chromeBuilder.bundleExitAnimations)
-            intent.putExtra(EXTRA_DEFAULT_SHARE_MENU_ITEM, chromeBuilder.showDefaultShareMenuItem)
-            intent.putExtras(extras)
-        }
+        val extras = Bundle()
+        extras.putBinder(EXTRA_SESSION, null)
+        intent.putExtra(EXTRA_CLOSE_BUTTON_ICON, chromeBuilder.icon)
+        intent.putExtra(EXTRA_TOOLBAR_COLOR, chromeBuilder.color)
+        intent.putExtra(EXTRA_TITLE_VISIBILITY_STATE, if (chromeBuilder.showTitle) SHOW_PAGE_TITLE else NO_TITLE)
+        intent.putExtra(EXTRA_EXIT_ANIMATION_BUNDLE, chromeBuilder.bundleExitAnimations)
+        intent.putExtra(EXTRA_DEFAULT_SHARE_MENU_ITEM, chromeBuilder.showDefaultShareMenuItem)
+        intent.putExtras(extras)
         ActivityCompat.startActivity(chromeBuilder.context, intent, chromeBuilder.bundleStartAnimations)
     }
 

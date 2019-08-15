@@ -87,11 +87,9 @@ class MainActivity : BaseActivity(), View.OnClickListener {
                     showTitle(true)
                     animationType(NavUtils.Anim.HORIZONTAL_RIGHT)
                     showDefaultShareMenuItem(true)
-                    /*startAnimations(R.anim.popup_enter, R.anim.popup_exit)
-                    exitAnimations(R.anim.popup_enter, R.anim.popup_exit)*/
                     toolbarColor(ContextCompat.getColor(activity, R.color.colorAccent))
                     closeButtonIcon(BitmapFactory.decodeResource(resources, R.drawable.ic_back))
-                }.load("https://github.com/raphaelbussa/NavUtils")
+                }.load("https://raphaelbussa.github.io/NavUtils/")
             }
             R.id.sceneTransition -> {
                 pushActivity(SceneTransitionActivity::class) {

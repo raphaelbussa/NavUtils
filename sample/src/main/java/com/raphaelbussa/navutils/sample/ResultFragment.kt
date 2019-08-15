@@ -20,12 +20,12 @@ class ResultFragment : BaseFragment(), View.OnClickListener {
                 ?: NavUtils.Anim.SYSTEM
         when (v.id) {
             R.id.newFragment -> {
-                pushFragment(TestFragment::class, R.id.innerContaiener) {
+                pushFragment(TestFragment::class) {
                     animationType(animationType)
                     arguments(arguments ?: Bundle.EMPTY)
                     fragmentManager(childFragmentManager)
                     addToBackStack()
-                }.replace()
+                }.replace(R.id.innerContaiener)
             }
         }
     }

@@ -135,29 +135,28 @@ class FragmentBuilder {
 @Suppress("unused")
 class NavUtilsPushFragment(
         private val fragment: Fragment,
-        private val frameId: Int,
         private val fragmentBuilder: FragmentBuilder
 ) {
 
     /**
      * add
      */
-    fun add() {
-        commitNewFragment(false)
+    fun add(frameId: Int) {
+        commitNewFragment(frameId, false)
     }
 
     /**
      * replace
      */
-    fun replace() {
-        commitNewFragment(true)
+    fun replace(frameId: Int) {
+        commitNewFragment(frameId, true)
     }
 
     /**
      * commitNewFragment
      * @param replace Boolean
      */
-    private fun commitNewFragment(replace: Boolean) {
+    private fun commitNewFragment(frameId: Int, replace: Boolean) {
         if (fragmentBuilder.bundle != null) fragment.arguments = fragmentBuilder.bundle
         val transaction = (fragmentBuilder.fragmentManager ?: return).beginTransaction()
         if (fragmentBuilder.customAnimation) {

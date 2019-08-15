@@ -2,7 +2,6 @@ package com.raphaelbussa.navutils
 
 import android.content.Context
 import android.content.pm.ActivityInfo
-import android.content.pm.PackageManager
 import androidx.annotation.IntDef
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -13,6 +12,7 @@ import com.raphaelbussa.navutils.chrome.NavUtilsPushChromeActivity
 import com.raphaelbussa.navutils.fragment.FragmentBuilder
 import com.raphaelbussa.navutils.fragment.NavUtilsPushFragment
 import kotlin.reflect.KClass
+
 
 const val NAV_ANIM = "com.raphaelbussa.navutils.NavUtils.NAV_ANIM"
 const val NULL = -100
@@ -93,60 +93,56 @@ class NavUtils {
          * pushFragment
          * @param activity FragmentActivity
          * @param target Fragment
-         * @param frameId Int
          * @param builder FragmentBuilder.() -> Unit
          * @return NavUtilsPushFragment
          */
-        fun pushFragment(activity: FragmentActivity, target: Fragment, frameId: Int, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
+        fun pushFragment(activity: FragmentActivity, target: Fragment, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
             val innerFragment = FragmentBuilder()
             innerFragment.fragmentManager(activity.supportFragmentManager)
             builder(innerFragment)
-            return NavUtilsPushFragment(target, frameId, innerFragment)
+            return NavUtilsPushFragment(target, innerFragment)
         }
 
         /**
          * pushFragment
          * @param activity FragmentActivity
          * @param target KClass<*>
-         * @param frameId Int
          * @param builder FragmentBuilder.() -> Unit
          * @return NavUtilsPushFragment
          */
-        fun pushFragment(activity: FragmentActivity, target: KClass<*>, frameId: Int, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
+        fun pushFragment(activity: FragmentActivity, target: KClass<*>, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
             val innerFragment = FragmentBuilder()
             innerFragment.fragmentManager(activity.supportFragmentManager)
             builder(innerFragment)
-            return NavUtilsPushFragment(Fragment.instantiate(activity, target.java.name), frameId, innerFragment)
+            return NavUtilsPushFragment(Fragment.instantiate(activity, target.java.name), innerFragment)
         }
 
         /**
          * pushFragment
          * @param fragment Fragment
          * @param target Fragment
-         * @param frameId Int
          * @param builder FragmentBuilder.() -> Unit
          * @return NavUtilsPushFragment
          */
-        fun pushFragment(fragment: Fragment, target: Fragment, frameId: Int, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
+        fun pushFragment(fragment: Fragment, target: Fragment, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
             val innerFragment = FragmentBuilder()
             innerFragment.fragmentManager(fragment.fragmentManager)
             builder(innerFragment)
-            return NavUtilsPushFragment(target, frameId, innerFragment)
+            return NavUtilsPushFragment(target, innerFragment)
         }
 
         /**
          * pushFragment
          * @param fragment Fragment
          * @param target KClass<*>
-         * @param frameId Int
          * @param builder FragmentBuilder.() -> Unit
          * @return NavUtilsPushFragment
          */
-        fun pushFragment(fragment: Fragment, target: KClass<*>, frameId: Int, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
+        fun pushFragment(fragment: Fragment, target: KClass<*>, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
             val innerFragment = FragmentBuilder()
             innerFragment.fragmentManager(fragment.fragmentManager)
             builder(innerFragment)
-            return NavUtilsPushFragment(Fragment.instantiate(fragment.context, target.java.name), frameId, innerFragment)
+            return NavUtilsPushFragment(Fragment.instantiate(fragment.context, target.java.name), innerFragment)
         }
 
         /**
@@ -216,48 +212,44 @@ fun Fragment.pushActivity(target: KClass<*>, builder: ActivityBuilder.() -> Unit
  * pushFragment
  * @receiver FragmentActivity
  * @param target Fragment
- * @param frameId Int
  * @param builder FragmentBuilder.() -> Unit
  * @return NavUtilsPushFragment
  */
-fun FragmentActivity.pushFragment(target: Fragment, frameId: Int, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
-    return NavUtils.pushFragment(this, target, frameId, builder)
+fun FragmentActivity.pushFragment(target: Fragment, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
+    return NavUtils.pushFragment(this, target, builder)
 }
 
 /**
  * pushFragment
  * @receiver FragmentActivity
  * @param target KClass<*>
- * @param frameId Int
  * @param builder FragmentBuilder.() -> Unit
  * @return NavUtilsPushFragment
  */
-fun FragmentActivity.pushFragment(target: KClass<*>, frameId: Int, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
-    return NavUtils.pushFragment(this, target, frameId, builder)
+fun FragmentActivity.pushFragment(target: KClass<*>, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
+    return NavUtils.pushFragment(this, target, builder)
 }
 
 /**
  * pushFragment
  * @receiver Fragment
  * @param target Fragment
- * @param frameId Int
  * @param builder FragmentBuilder.() -> Unit
  * @return NavUtilsPushFragment
  */
-fun Fragment.pushFragment(target: Fragment, frameId: Int, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
-    return NavUtils.pushFragment(this, target, frameId, builder)
+fun Fragment.pushFragment(target: Fragment, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
+    return NavUtils.pushFragment(this, target, builder)
 }
 
 /**
  * pushFragment
  * @receiver Fragment
  * @param target KClass<*>
- * @param frameId Int
  * @param builder FragmentBuilder.() -> Unit
  * @return NavUtilsPushFragment
  */
-fun Fragment.pushFragment(target: KClass<*>, frameId: Int, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
-    return NavUtils.pushFragment(this, target, frameId, builder)
+fun Fragment.pushFragment(target: KClass<*>, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
+    return NavUtils.pushFragment(this, target, builder)
 }
 
 /**
@@ -278,21 +270,6 @@ fun FragmentActivity.pushChromeCustomTab(builder: ChromeBuilder.() -> Unit = {})
  */
 fun Fragment.pushChromeCustomTab(builder: ChromeBuilder.() -> Unit = {}): NavUtilsPushChromeActivity {
     return NavUtils.pushChromeCustomTab(this, builder)
-}
-
-/**
- * isChromeInstalled
- * @param context Context
- * @return Boolean
- */
-internal fun isChromeInstalled(context: Context): Boolean {
-    val packageManager = context.packageManager
-    return try {
-        packageManager.getPackageInfo("com.android.chrome", PackageManager.GET_ACTIVITIES)
-        true
-    } catch (e: PackageManager.NameNotFoundException) {
-        false
-    }
 }
 
 @IntDef(NULL,

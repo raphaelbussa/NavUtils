@@ -19,7 +19,7 @@ repositories {
 
 ```Gradle
 dependencies {
-    implementation 'com.raphaelbussa:navutils:4.0.0.alpha6'
+    implementation 'com.raphaelbussa:navutils:4.0.0.alpha7'
 }
 ```
 ### How to use
@@ -49,7 +49,7 @@ For commit an Activty with result
 The library provide several methods to commit a new fragment, in Fragment and Activity you can use extentions
 
 ```Kotlin
-pushFragment(ResultFragment::class, R.id.container) {
+pushFragment(ResultFragment::class) {
     //add standard animation
     animationType(animationType)
     //remove start animation
@@ -64,12 +64,12 @@ pushFragment(ResultFragment::class, R.id.container) {
     addToBackStack()
     //set custom tag
     tag("custom tag")
-}.replace()
+}.replace(R.id.container)
 ```
 If you want to add
 
 ```Kotlin
-.add()
+.add(R.id.container)
 ```
 
 # That's all folks!
