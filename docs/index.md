@@ -19,7 +19,7 @@ repositories {
 
 ```Gradle
 dependencies {
-    implementation 'com.raphaelbussa:navutils:4.0.0.alpha7'
+    implementation 'com.raphaelbussa:navutils:4.0.0.alpha8'
 }
 ```
 ### How to use

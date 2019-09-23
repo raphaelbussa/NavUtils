@@ -7,8 +7,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.raphaelbussa.navutils.activity.ActivityBuilder
 import com.raphaelbussa.navutils.activity.NavUtilsPushActivity
-import com.raphaelbussa.navutils.chrome.ChromeBuilder
-import com.raphaelbussa.navutils.chrome.NavUtilsPushChromeActivity
+import com.raphaelbussa.navutils.customtabs.CustomTabsBuilder
+import com.raphaelbussa.navutils.customtabs.NavUtilsPushCustomTabsActivity
 import com.raphaelbussa.navutils.fragment.FragmentBuilder
 import com.raphaelbussa.navutils.fragment.NavUtilsPushFragment
 import kotlin.reflect.KClass
@@ -48,6 +48,7 @@ class NavUtils {
          * @param value Int?
          * @return Anim?
          */
+        @JvmStatic
         fun valueOfAnim(value: Int?): Anim? = Anim.values().find { it.anim == value }
 
         /**
@@ -57,10 +58,11 @@ class NavUtils {
          * @param builder ActivityBuilder.() -> Unit
          * @return NavUtilsPushActivity
          */
+        @JvmStatic
         fun pushActivity(context: Context, target: KClass<*>, builder: ActivityBuilder.() -> Unit = {}): NavUtilsPushActivity {
-            val innerActivity = ActivityBuilder()
-            builder(innerActivity)
-            return NavUtilsPushActivity(null, context, target, innerActivity)
+            val activityBuilder = ActivityBuilder()
+            builder(activityBuilder)
+            return NavUtilsPushActivity(null, context, target, activityBuilder)
         }
 
         /**
@@ -71,9 +73,9 @@ class NavUtils {
          * @return NavUtilsPushActivity
          */
         fun pushActivity(activity: FragmentActivity, target: KClass<*>, builder: ActivityBuilder.() -> Unit = {}): NavUtilsPushActivity {
-            val innerActivity = ActivityBuilder()
-            builder(innerActivity)
-            return NavUtilsPushActivity(null, activity, target, innerActivity)
+            val activityBuilder = ActivityBuilder()
+            builder(activityBuilder)
+            return NavUtilsPushActivity(null, activity, target, activityBuilder)
         }
 
         /**
@@ -83,10 +85,11 @@ class NavUtils {
          * @param builder ActivityBuilder.() -> Unit
          * @return NavUtilsPushActivity
          */
+        @JvmStatic
         fun pushActivity(fragment: Fragment, target: KClass<*>, builder: ActivityBuilder.() -> Unit = {}): NavUtilsPushActivity {
-            val innerActivity = ActivityBuilder()
-            builder(innerActivity)
-            return NavUtilsPushActivity(fragment, fragment.context, target, innerActivity)
+            val activityBuilder = ActivityBuilder()
+            builder(activityBuilder)
+            return NavUtilsPushActivity(fragment, fragment.context, target, activityBuilder)
         }
 
         /**
@@ -96,11 +99,12 @@ class NavUtils {
          * @param builder FragmentBuilder.() -> Unit
          * @return NavUtilsPushFragment
          */
+        @JvmStatic
         fun pushFragment(activity: FragmentActivity, target: Fragment, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
-            val innerFragment = FragmentBuilder()
-            innerFragment.fragmentManager(activity.supportFragmentManager)
-            builder(innerFragment)
-            return NavUtilsPushFragment(target, innerFragment)
+            val fragmentBuilder = FragmentBuilder()
+            fragmentBuilder.fragmentManager(activity.supportFragmentManager)
+            builder(fragmentBuilder)
+            return NavUtilsPushFragment(target, fragmentBuilder)
         }
 
         /**
@@ -110,11 +114,12 @@ class NavUtils {
          * @param builder FragmentBuilder.() -> Unit
          * @return NavUtilsPushFragment
          */
+        @JvmStatic
         fun pushFragment(activity: FragmentActivity, target: KClass<*>, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
-            val innerFragment = FragmentBuilder()
-            innerFragment.fragmentManager(activity.supportFragmentManager)
-            builder(innerFragment)
-            return NavUtilsPushFragment(Fragment.instantiate(activity, target.java.name), innerFragment)
+            val fragmentBuilder = FragmentBuilder()
+            fragmentBuilder.fragmentManager(activity.supportFragmentManager)
+            builder(fragmentBuilder)
+            return NavUtilsPushFragment(fragmentBuilder.fragmentManager?.fragmentFactory?.instantiate(ClassLoader.getSystemClassLoader(), target.java.name)!!, fragmentBuilder)
         }
 
         /**
@@ -124,11 +129,12 @@ class NavUtils {
          * @param builder FragmentBuilder.() -> Unit
          * @return NavUtilsPushFragment
          */
+        @JvmStatic
         fun pushFragment(fragment: Fragment, target: Fragment, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
-            val innerFragment = FragmentBuilder()
-            innerFragment.fragmentManager(fragment.fragmentManager)
-            builder(innerFragment)
-            return NavUtilsPushFragment(target, innerFragment)
+            val fragmentBuilder = FragmentBuilder()
+            fragmentBuilder.fragmentManager(fragment.fragmentManager)
+            builder(fragmentBuilder)
+            return NavUtilsPushFragment(target, fragmentBuilder)
         }
 
         /**
@@ -138,47 +144,51 @@ class NavUtils {
          * @param builder FragmentBuilder.() -> Unit
          * @return NavUtilsPushFragment
          */
+        @JvmStatic
         fun pushFragment(fragment: Fragment, target: KClass<*>, builder: FragmentBuilder.() -> Unit = {}): NavUtilsPushFragment {
-            val innerFragment = FragmentBuilder()
-            innerFragment.fragmentManager(fragment.fragmentManager)
-            builder(innerFragment)
-            return NavUtilsPushFragment(Fragment.instantiate(fragment.context, target.java.name), innerFragment)
+            val fragmentBuilder = FragmentBuilder()
+            fragmentBuilder.fragmentManager(fragment.fragmentManager)
+            builder(fragmentBuilder)
+            return NavUtilsPushFragment(fragmentBuilder.fragmentManager?.fragmentFactory?.instantiate(ClassLoader.getSystemClassLoader(), target.java.name)!!, fragmentBuilder)
         }
 
         /**
-         * pushChromeCustomTab
+         * pushCustomTab
          * @param context Context
-         * @param builder ChromeBuilder.() -> Unit
-         * @return NavUtilsPushChromeActivity
+         * @param builder CustomTabsBuilder.() -> Unit
+         * @return NavUtilsPushCustomTabsActivity
          */
-        fun pushChromeCustomTab(context: Context, builder: ChromeBuilder.() -> Unit = {}): NavUtilsPushChromeActivity {
-            val innerChrome = ChromeBuilder(context)
-            builder(innerChrome)
-            return NavUtilsPushChromeActivity(innerChrome)
+        @JvmStatic
+        fun pushCustomTab(context: Context, builder: CustomTabsBuilder.() -> Unit = {}): NavUtilsPushCustomTabsActivity {
+            val customTabsBuilder = CustomTabsBuilder(context)
+            builder(customTabsBuilder)
+            return NavUtilsPushCustomTabsActivity(customTabsBuilder)
         }
 
         /**
-         * pushChromeCustomTab
+         * pushCustomTab
          * @param activity FragmentActivity
-         * @param builder ChromeBuilder.() -> Unit
-         * @return NavUtilsPushChromeActivity
+         * @param builder CustomTabsBuilder.() -> Unit
+         * @return NavUtilsPushCustomTabsActivity
          */
-        fun pushChromeCustomTab(activity: FragmentActivity, builder: ChromeBuilder.() -> Unit = {}): NavUtilsPushChromeActivity {
-            val innerChrome = ChromeBuilder(activity)
-            builder(innerChrome)
-            return NavUtilsPushChromeActivity(innerChrome)
+        @JvmStatic
+        fun pushCustomTab(activity: FragmentActivity, builder: CustomTabsBuilder.() -> Unit = {}): NavUtilsPushCustomTabsActivity {
+            val customTabsBuilder = CustomTabsBuilder(activity)
+            builder(customTabsBuilder)
+            return NavUtilsPushCustomTabsActivity(customTabsBuilder)
         }
 
         /**
-         * pushChromeCustomTab
+         * pushCustomTab
          * @param fragment Fragment
-         * @param builder ChromeBuilder.() -> Unit
-         * @return NavUtilsPushChromeActivity
+         * @param builder CustomTabsBuilder.() -> Unit
+         * @return NavUtilsPushCustomTabsActivity
          */
-        fun pushChromeCustomTab(fragment: Fragment, builder: ChromeBuilder.() -> Unit = {}): NavUtilsPushChromeActivity {
-            val innerChrome = ChromeBuilder(fragment.requireContext())
-            builder(innerChrome)
-            return NavUtilsPushChromeActivity(innerChrome)
+        @JvmStatic
+        fun pushCustomTab(fragment: Fragment, builder: CustomTabsBuilder.() -> Unit = {}): NavUtilsPushCustomTabsActivity {
+            val customTabsBuilder = CustomTabsBuilder(fragment.requireContext())
+            builder(customTabsBuilder)
+            return NavUtilsPushCustomTabsActivity(customTabsBuilder)
         }
 
     }
@@ -253,23 +263,23 @@ fun Fragment.pushFragment(target: KClass<*>, builder: FragmentBuilder.() -> Unit
 }
 
 /**
- * pushChromeCustomTab
+ * pushCustomTab
  * @receiver FragmentActivity
- * @param builder ChromeBuilder.() -> Unit
- * @return NavUtilsPushChromeActivity
+ * @param builder CustomTabsBuilder.() -> Unit
+ * @return NavUtilsPushCustomTabsActivity
  */
-fun FragmentActivity.pushChromeCustomTab(builder: ChromeBuilder.() -> Unit = {}): NavUtilsPushChromeActivity {
-    return NavUtils.pushChromeCustomTab(this, builder)
+fun FragmentActivity.pushCustomTab(builder: CustomTabsBuilder.() -> Unit = {}): NavUtilsPushCustomTabsActivity {
+    return NavUtils.pushCustomTab(this, builder)
 }
 
 /**
- * pushChromeCustomTab
+ * pushCustomTab
  * @receiver Fragment
- * @param builder ChromeBuilder.() -> Unit
- * @return NavUtilsPushChromeActivity
+ * @param builder CustomTabsBuilder.() -> Unit
+ * @return NavUtilsPushCustomTabsActivity
  */
-fun Fragment.pushChromeCustomTab(builder: ChromeBuilder.() -> Unit = {}): NavUtilsPushChromeActivity {
-    return NavUtils.pushChromeCustomTab(this, builder)
+fun Fragment.pushCustomTab(builder: CustomTabsBuilder.() -> Unit = {}): NavUtilsPushCustomTabsActivity {
+    return NavUtils.pushCustomTab(this, builder)
 }
 
 @IntDef(NULL,

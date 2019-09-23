@@ -50,10 +50,10 @@
             android:text="Activity SYSTEM" />
 
         <Button
-            android:id="@+id/chrome"
+            android:id="@+id/customTab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Chrome custom tab" />
+            android:text="Custom tab" />
 
         <Button
             android:id="@+id/sceneTransition"

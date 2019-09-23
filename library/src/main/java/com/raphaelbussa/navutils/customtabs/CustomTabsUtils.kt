@@ -1,4 +1,4 @@
-package com.raphaelbussa.navutils.chrome
+package com.raphaelbussa.navutils.customtabs
 
 import android.content.Context
 import android.content.Intent
@@ -25,7 +25,7 @@ internal const val EXTRA_EXIT_ANIMATION_BUNDLE = "android.support.customtabs.ext
 internal const val EXTRA_DEFAULT_SHARE_MENU_ITEM = "android.support.customtabs.extra.SHARE_MENU_ITEM"
 
 /**
- * ChromeBuilder
+ * CustomTabsBuilder
  * @property context Context
  * @property animationType Anim
  * @property color Int
@@ -38,7 +38,7 @@ internal const val EXTRA_DEFAULT_SHARE_MENU_ITEM = "android.support.customtabs.e
  */
 
 @NavUtilsMarker
-class ChromeBuilder(internal val context: Context) {
+class CustomTabsBuilder(internal val context: Context) {
 
     private var animationType: NavUtils.Anim = NavUtils.Anim.SYSTEM
     @ColorInt
@@ -161,13 +161,13 @@ class ChromeBuilder(internal val context: Context) {
 }
 
 /**
- * NavUtilsPushChromeActivity
- * @property chromeBuilder ChromeBuilder
+ * NavUtilsPushCustomTabsActivity
+ * @property customTabsBuilder CustomTabsBuilder
  * @constructor
  */
 @Suppress("MemberVisibilityCanBePrivate")
-class NavUtilsPushChromeActivity(
-        private val chromeBuilder: ChromeBuilder
+class NavUtilsPushCustomTabsActivity(
+        private val customTabsBuilder: CustomTabsBuilder
 ) {
 
     /**
@@ -186,13 +186,13 @@ class NavUtilsPushChromeActivity(
         val intent = Intent(Intent.ACTION_VIEW, uri)
         val extras = Bundle()
         extras.putBinder(EXTRA_SESSION, null)
-        intent.putExtra(EXTRA_CLOSE_BUTTON_ICON, chromeBuilder.icon)
-        intent.putExtra(EXTRA_TOOLBAR_COLOR, chromeBuilder.color)
-        intent.putExtra(EXTRA_TITLE_VISIBILITY_STATE, if (chromeBuilder.showTitle) SHOW_PAGE_TITLE else NO_TITLE)
-        intent.putExtra(EXTRA_EXIT_ANIMATION_BUNDLE, chromeBuilder.bundleExitAnimations)
-        intent.putExtra(EXTRA_DEFAULT_SHARE_MENU_ITEM, chromeBuilder.showDefaultShareMenuItem)
+        intent.putExtra(EXTRA_CLOSE_BUTTON_ICON, customTabsBuilder.icon)
+        intent.putExtra(EXTRA_TOOLBAR_COLOR, customTabsBuilder.color)
+        intent.putExtra(EXTRA_TITLE_VISIBILITY_STATE, if (customTabsBuilder.showTitle) SHOW_PAGE_TITLE else NO_TITLE)
+        intent.putExtra(EXTRA_EXIT_ANIMATION_BUNDLE, customTabsBuilder.bundleExitAnimations)
+        intent.putExtra(EXTRA_DEFAULT_SHARE_MENU_ITEM, customTabsBuilder.showDefaultShareMenuItem)
         intent.putExtras(extras)
-        ActivityCompat.startActivity(chromeBuilder.context, intent, chromeBuilder.bundleStartAnimations)
+        ActivityCompat.startActivity(customTabsBuilder.context, intent, customTabsBuilder.bundleStartAnimations)
     }
 
 }

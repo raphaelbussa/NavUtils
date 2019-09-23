@@ -10,7 +10,7 @@ import androidx.core.content.ContextCompat
 import com.raphaelbussa.navutils.NavUtils
 import com.raphaelbussa.navutils.activity.BaseActivity
 import com.raphaelbussa.navutils.pushActivity
-import com.raphaelbussa.navutils.pushChromeCustomTab
+import com.raphaelbussa.navutils.pushCustomTab
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity(), View.OnClickListener {
@@ -29,7 +29,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         verticalTop.setOnClickListener(this)
         none.setOnClickListener(this)
         system.setOnClickListener(this)
-        chrome.setOnClickListener(this)
+        customTab.setOnClickListener(this)
         sceneTransition.setOnClickListener(this)
         fab.setOnClickListener(this)
     }
@@ -82,8 +82,8 @@ class MainActivity : BaseActivity(), View.OnClickListener {
                     animationType(NavUtils.Anim.SYSTEM)
                 }.commit()
             }
-            R.id.chrome -> {
-                pushChromeCustomTab {
+            R.id.customTab -> {
+                pushCustomTab {
                     showTitle(true)
                     animationType(NavUtils.Anim.HORIZONTAL_RIGHT)
                     showDefaultShareMenuItem(true)
